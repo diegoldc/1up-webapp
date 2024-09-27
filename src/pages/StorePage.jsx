@@ -4,7 +4,7 @@ import StoreGameCard from "../components/StoreGameCard";
 
 function StorePage() {
   const [gameList, setGameList] = useState(null);
-  const [pageInfo, setPageInfo] = useState({ next: null, prev: null });
+  const [pageInfo, setPageInfo] = useState({ next: null, previous: null });
   const [currentPage, setCurrentPage] = useState(1);
 
   useEffect(() => {
@@ -33,7 +33,7 @@ function StorePage() {
   };
 
   const handlePrevPage = () => {
-    if (pageInfo.prev) {
+    if (pageInfo.previous) {
       setCurrentPage(currentPage - 1)
     }
   };
@@ -52,7 +52,7 @@ function StorePage() {
 
       <div>
         
-        <button onClick={handlePrevPage} disabled={!pageInfo.prev}>
+        <button onClick={handlePrevPage} disabled={!pageInfo.previous}>
           Anterior
         </button>
         <button onClick={handleNextPage} disabled={!pageInfo.next}>

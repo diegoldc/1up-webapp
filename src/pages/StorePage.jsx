@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import StoreGameCard from "../components/StoreGameCard";
+import SearchBar from "../components/SearchBar";
 
 function StorePage() {
   const [gameList, setGameList] = useState(null);
@@ -20,7 +21,7 @@ function StorePage() {
       );
       setPageInfo(response.data);
       setGameList(response.data.results);
-      console.log(gameList);
+      // console.log(gameList);
     } catch (error) {
       console.log(error);
     }
@@ -44,6 +45,8 @@ function StorePage() {
 
   return (
     <>
+      <SearchBar setGameList={setGameList}/>
+
       <div>
         {gameList.map((game) => {
           return <StoreGameCard key={game.id} {...game} />;

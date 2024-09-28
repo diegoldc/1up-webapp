@@ -4,7 +4,7 @@ function NavBar() {
     <nav className="navBar">
       <ul>
 
-      <Link to={"/store"} ><img src="" alt="NavImg" style={{color:"white"}}/></Link>
+      <Link to={"/"} ><img src="" alt="NavImg" style={{color:"white"}}/></Link>
       <Link to={"/library"} ><img src="" alt="NavImg" style={{color:"white"}}/></Link>
       <Link to={"/cart"} ><img src="" alt="NavImg" style={{color:"white"}} /></Link>
       <Link to={"/profile"} ><img src="" alt="NavImg" style={{color:"white"}}/></Link>

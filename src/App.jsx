@@ -3,6 +3,7 @@ import { Route , Routes } from 'react-router-dom'
 import StorePage from './pages/StorePage'
 import NavBar from './components/NavBar'
 import NotFoundPage from './pages/NotFoundPage'
+import HomePage from './pages/HomePage'
 import './App.css'
 
 function App() {
@@ -13,6 +14,7 @@ function App() {
     <NavBar />
     <img src="" alt="LOGO" />
     <Routes>
+      <Route path='/' element={<HomePage />} />
       <Route path='/store' element={<StorePage />} />
 
 

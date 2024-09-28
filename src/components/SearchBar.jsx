@@ -18,8 +18,7 @@ function SearchBar({setGameList}) {
 
   return (
     <>
-    <div>SearchBar</div>
-    <input type="text" onChange={(event) => setSearch(event.target.value)} value={search} />
+    <input type="text" placeholder="search" onChange={(event) => setSearch(event.target.value)} value={search} />
     <button onClick={handleSearch}>Search</button>
     </>
 

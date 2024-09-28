@@ -7,6 +7,7 @@ function StorePage() {
   const [gameList, setGameList] = useState(null);
   const [pageInfo, setPageInfo] = useState({ next: null, previous: null });
   const [currentPage, setCurrentPage] = useState(1);
+  
 
   useEffect(() => {
     getData(currentPage);
@@ -16,9 +17,7 @@ function StorePage() {
     setGameList(null);
 
     try {
-      const response = await axios.get(
-        `https://api.rawg.io/api/games?key=66de422f402448d9bb9f0fa806195ea1&page=${page}`
-      );
+      const response = await axios.get(`${import.meta.env.VITE_RAWG_URL}/games${import.meta.env.VITE_RAWG_KEY}&page=${page}`);
       setPageInfo(response.data);
       setGameList(response.data.results);
       // console.log(gameList);

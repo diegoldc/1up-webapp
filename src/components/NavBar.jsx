@@ -1,11 +1,15 @@
 import { Link } from "react-router-dom"
 function NavBar() {
   return (
-    <nav>
-      <Link to={"/store"} ><img src="" alt="NavImg" /></Link>
-      <Link to={"/library"} ><img src="" alt="NavImg" /></Link>
-      <Link to={"/cart"} ><img src="" alt="NavImg" /></Link>
-      <Link to={"/profile"} ><img src="" alt="NavImg" /></Link>
+    <nav className="navBar">
+      <ul>
+
+      <Link to={"/store"} ><img src="" alt="NavImg" style={{color:"white"}}/></Link>
+      <Link to={"/library"} ><img src="" alt="NavImg" style={{color:"white"}}/></Link>
+      <Link to={"/cart"} ><img src="" alt="NavImg" style={{color:"white"}} /></Link>
+      <Link to={"/profile"} ><img src="" alt="NavImg" style={{color:"white"}}/></Link>
+
+      </ul>
     </nav>
   )
 }

@@ -53,7 +53,7 @@ function StorePage() {
         })}
       </div>
 
-      <div>
+      <div style={{margin:"20px"}}>
         
         <button onClick={handlePrevPage} disabled={!pageInfo.previous}>
           Anterior

@@ -10,6 +10,7 @@ function SearchBar({setGameList}) {
       const response = await axios.get(`${import.meta.env.VITE_RAWG_URL}/games${import.meta.env.VITE_RAWG_KEY}&search=${search}`)
       console.log(response)
       setGameList(response.data.results)
+      // setSearch("")
     } catch (error) {
       console.log(error)
     }
@@ -18,7 +19,7 @@ function SearchBar({setGameList}) {
   return (
     <>
     <div>SearchBar</div>
-    <input type="text" onChange={(event) => setSearch(event.target.value)}/>
+    <input type="text" onChange={(event) => setSearch(event.target.value)} value={search} />
     <button onClick={handleSearch}>Search</button>
     </>
 

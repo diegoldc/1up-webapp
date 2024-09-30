@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom"
 import axios from "axios"
 
 function ReviewCard({content,profilePic,userName,rating,screenshots,usrName,id,gameId, onDelete}) {
@@ -20,7 +21,9 @@ function ReviewCard({content,profilePic,userName,rating,screenshots,usrName,id,g
       <p>{content}</p>
       {usrName===userName && (
         <>
+        <Link to={`/games/${gameId}/editReview/${id}`}>
         <button>edit</button>
+        </Link>
         <button onClick={handleDelete} >delete</button>
         </>
       )}

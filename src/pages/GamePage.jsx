@@ -22,16 +22,24 @@ function GamePage() {
         }`
       );
       setGameDetails(response.data);
+    } catch (error) {
+      console.log("FATAL ERROR (game)", error);
+    }
+    try {
       const revResponse = await axios.get(
         `${import.meta.env.VITE_LOCAL_URL}/reviews?gameId=${params.gameId}`
       );
-      setReviews(revResponse.data);
+      setReviews(revResponse.data); 
+    } catch (error) {
+      console.log("FATAL ERROR (reviews)", error);
+    }
+    try {      
       const userData = await axios.get(
         `${import.meta.env.VITE_LOCAL_URL}/profile`
       );
       setUsrName(userData.data[0].user)
     } catch (error) {
-      console.log("FATAL ERROR", error);
+      console.log("FATAL ERROR (profile)", error);
     }
   };
 
@@ -55,7 +63,7 @@ function GamePage() {
 
       <p>{gameDetails.description_raw}</p>
       <Link state={gameDetails.name} to={`/games/${params.gameId}/addReview`} >
-      <button>Add review</button>
+      <button className="addReviewBtn">Add review</button>
       </Link>
       {reviews === null ? (
         <h1>...Loading reviews</h1>

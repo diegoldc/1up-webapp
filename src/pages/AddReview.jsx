@@ -1,6 +1,8 @@
 import { useState , useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import Button from 'react-bootstrap/Button';
+import Form from 'react-bootstrap/Form';
 
 function AddReviewPage() {
   const { gameId } = useParams();
@@ -62,34 +64,39 @@ function AddReviewPage() {
   return (
     <div>
       <h2>Añadir Review</h2>
-      <form onSubmit={handleSubmit}>
         <div>
           <img style={{height:"40px",width:"40px",overflow:"hidden",borderRadius:"40px"}} src={usrPic} alt="" />
           <p>User name: {usrName} </p>
         </div>
-        <div>
-          <label>Rating:</label>
-          <input
-            type="number"
+      <Form onSubmit={handleSubmit}>
+      <Form.Group className="mb-3">
+          <Form.Label>Rating:</Form.Label>
+          <Form.Select
             name="rating"
             value={formData.rating}
             onChange={handleChange}
             required
-            min="1"
-            max="5"
-          />
-        </div>
-        <div>
-          <label>Review:</label>
-          <textarea
+          >
+            <option value="">Select Rating</option>
+            <option value="0">0</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+          </Form.Select>
+        </Form.Group>
+        <Form.Group className="mb-3">
+          <Form.Label>Review:</Form.Label>
+          <Form.Control
             name="content"
             value={formData.content}
             onChange={handleChange}
             required
           />
-        </div>
-        <button type="submit">Enviar Review</button>
-      </form>
+        </Form.Group>
+        <Button type="submit">Enviar Review</Button>
+      </Form>
     </div>
   );
 }

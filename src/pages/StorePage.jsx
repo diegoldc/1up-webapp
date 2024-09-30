@@ -45,7 +45,7 @@ function StorePage() {
     <>
       <SearchBar setGameList={setGameList}/>
 
-      <div>
+      <div className="gameList">
         {gameList.map((game) => {
           return <StoreGameCard key={game.id} {...game} />;
         })}

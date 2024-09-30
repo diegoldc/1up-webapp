@@ -1,8 +1,12 @@
-#root {
+#root, html {
   max-width: 1280px;
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #2a3c48;
+  margin-bottom: 50px;
 }
 
 .navBar {
@@ -14,6 +18,9 @@
   color: white;
   text-align: center;
   padding: 10px 0;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
 }
 
 .navBar ul {
@@ -22,6 +29,35 @@
   padding: 0;
   display: flex;
   justify-content: center;
+}
+
+.navBar img {
+  width: 30px;
+  height: 30px;
+  margin: 0 10px;
+}
+
+.navBarProfile {
+  border-radius: 15px;
+}
+
+.addReviewBtn {
+  border-radius: 50px;
+  background: linear-gradient(145deg, #86b9d2, #9fdbf9);
+  box-shadow: 27px 27px 55px #76a2b8, -27px -27px 55px #b4f8ff;
+  margin-bottom: 20px;
+}
+
+.gameList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  align-items: center;
+  justify-content: center;
+}
+
+.gameCard{
+  background-color: #333;
 }
 
 /* 

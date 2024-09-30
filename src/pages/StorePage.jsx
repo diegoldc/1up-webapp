@@ -20,7 +20,6 @@ function StorePage() {
       const response = await axios.get(`${import.meta.env.VITE_RAWG_URL}/games${import.meta.env.VITE_RAWG_KEY}&page=${page}`);
       setPageInfo(response.data);
       setGameList(response.data.results);
-      // console.log(gameList);
     } catch (error) {
       console.log(error);
     }

@@ -1,10 +1,13 @@
+import { Link } from "react-router-dom"
 
-function StoreGameCard({name,rating,background_image,tags}) {
+
+function StoreGameCard({id,name,rating,background_image,tags}) {
   // let randNum
   // (tags.length > 2) && randNum = Math.floor(Math.random() * tags)-3
 
 
   return (
+    <Link to={`/games/${id}`}>
     <article className="storeGameCard" style={{border:"1px solid black"}}>
       <img src={background_image} style={{height:"50px"}} alt="" />
       <h3>{name}</h3>
@@ -15,11 +18,12 @@ function StoreGameCard({name,rating,background_image,tags}) {
         <p>{tags[Math.floor(randNum +1)].name}</p>
         <p>{tags[Math.floor(randNum +2)].name}</p>
         </>
-      ) : ( null) } */}
+        ) : ( null) } */}
       <p>{tags[0].name} </p>
       {/* // <p>{tags[1].name} </p> */}
       {/* <p>{tags[2].name} </p> */}
     </article>
+    </Link>
   )
 }
 

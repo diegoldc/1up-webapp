@@ -34,7 +34,6 @@ function AddReviewPage() {
       ...formData,
       [name]: value
     });
-    console.log(formData)
   };
 
   const handleSubmit = async (e) => {
@@ -49,8 +48,8 @@ function AddReviewPage() {
       };
 
       await axios.post(`${import.meta.env.VITE_LOCAL_URL}/reviews`, newReview);
-
-      navigate(`/game/${gameId}`);
+      
+      navigate(`/games/${gameId}`);
     } catch (error) {
       console.log('Error al crear la review:', error);
     }
@@ -81,7 +80,7 @@ function AddReviewPage() {
           />
         </div>
         <div>
-          <label>Revi:</label>
+          <label>Review:</label>
           <textarea
             name="content"
             value={formData.content}

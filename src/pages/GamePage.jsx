@@ -8,6 +8,7 @@ function GamePage() {
 
   const [gameDetails, setGameDetails] = useState(null);
   const [reviews, setReviews] = useState(null);
+  const [ usrName , setUsrName ] = useState(null)
 
   useEffect(() => {
     getData();
@@ -20,17 +21,23 @@ function GamePage() {
           import.meta.env.VITE_RAWG_KEY
         }`
       );
-      console.log(response.data);
       setGameDetails(response.data);
       const revResponse = await axios.get(
         `${import.meta.env.VITE_LOCAL_URL}/reviews?gameId=${params.gameId}`
       );
-      console.log(revResponse.data);
       setReviews(revResponse.data);
+      const userData = await axios.get(
+        `${import.meta.env.VITE_LOCAL_URL}/profile`
+      );
+      setUsrName(userData.data[0].user)
     } catch (error) {
       console.log("FATAL ERROR", error);
     }
   };
+
+  const handleDeleteReview = (reviewId) => {
+    setReviews((prevReviews) => prevReviews.filter((review) => review.id !== reviewId))
+  }
 
   if (gameDetails === null) {
     return <h1>...Loading</h1>;
@@ -53,7 +60,7 @@ function GamePage() {
       {reviews === null ? (
         <h1>...Loading reviews</h1>
       ) : (
-        reviews.map((rev) => <ReviewCard key={rev.id} {...rev} />)
+        reviews.map((rev) => <ReviewCard usrName={usrName} key={rev.id} {...rev} onDelete={handleDeleteReview} />)
       )}
     </div>
   );

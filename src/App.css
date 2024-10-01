@@ -2,6 +2,7 @@
 :root {
   --background: #2A3D48;
   --color-font:lightblue;
+  --shadow: #151e24;
 }
 
 #root, html {
@@ -46,11 +47,11 @@
   padding: 10px;
   border-radius: 15px;
   background: #2A3D48;
-  box-shadow:  9px 9px 18px #19252b, -9px -9px 18px #3b5565;
+  box-shadow:  9px 9px 18px var(--shadow), -9px -9px 18px #3b5565;
 }
 
 .navButton:active {
-  box-shadow:  inset 16px 16px 32px #19252b, inset -16px -16px 32px #3b5565;
+  box-shadow:  inset 16px 16px 32px var(--shadow), inset -16px -16px 32px #3b5565;
 }
 
 .navBar img {
@@ -176,76 +177,68 @@
 
 .input-container {
   position: relative;
-  width: 100%; 
+  width: 77%; 
   max-width: 400px;
   margin: 0 auto; 
+  padding-top: 10px;
 }
 
 .input {
   padding: 10px;
   height: 40px;
-  border: 2px solid #0B2447;
+  border: 2px solid var(--shadow);
   border-top: none;
   border-bottom: none;
   font-size: 16px;
   background: transparent;
   outline: none;
-  box-shadow: 7px 7px 0px 0px #0B2447;
+  box-shadow: 7px 7px 0px 0px var(--shadow);
   transition: all 0.5s;
   width: 100%;
+  color: rgb(216, 239, 241);
 }
 
 .input:focus {
   box-shadow: none;
-  transition: all 0.5s;
 }
 
 .label {
   position: absolute;
+  font-size: 1.2rem;
   top: 10px;
-  left: 10px;
-  color: #ffffff;
+  left: -35px;
+  color: lightblue; 
   transition: all 0.5s;
-  transform: scale(0);
-  z-index: -1;
-}
-
-.input-container .topline {
-  position: absolute;
-  content: "";
-  background-color: #0B2447;
-  width: 0%;
-  height: 2px;
-  right: 0;
-  top: 0;
-  transition: all 0.5s;
-}
-
-.input-container input[type="text"]:focus ~ .topline {
-  width: 35%;
-  transition: all 0.5s;
-}
-
-.input-container .underline {
-  position: relative;
-  content: "";
-  background-color: #0B2447;
-  width: 0%;
-  height: 2px;
-  right: 0;
-  bottom: 0;
-  transition: all 0.5s;
-}
-
-.input-container input[type="text"]:focus ~ .underline {
-  width: 100%;
-  transition: all 0.5s;
+  transform: scale(0); 
 }
 
 .input-container input[type="text"]:focus ~ .label {
   top: -10px;
-  transform: scale(1);
+  left:10px;
+  transform: scale(1); 
+}
+
+.input-container input[type="text"]:focus ~ .topline {
+  width: 35%;
+}
+
+.input-container input[type="text"]:focus ~ .underline {
+  width: 100%;
+}
+
+.topline,
+.underline {
+  position: relative;
+  content: "";
+  background-color: var(--shadow);
+  width: 0%;
+  height: 2px;
   transition: all 0.5s;
+}
+
+.underline {
+  position: relative;
+  bottom: 0;
 }
 /* 
 .logo {

@@ -17,10 +17,15 @@ function SearchBar({setGameList}) {
   }
 
   return (
-    <div style={{marginBottom:"20px", marginTop:"20px"}}>
-    <input type="text" placeholder="search" onChange={(event) => setSearch(event.target.value)} value={search} />
-    <button onClick={handleSearch}>Search</button>
+    <div className="input-container" style={{marginBottom:"20px", marginTop:"20px"}}>
+    <input className="input" type="text" placeholder="search" onChange={(event) => setSearch(event.target.value)} value={search} />
+    <label htmlFor="input" className="label">Enter Your Name</label>
+    <div className="topline"></div>
+<div className="underline"></div>
+<button onClick={handleSearch}>Search</button>
     </div>
+
+    
 
   )
 }

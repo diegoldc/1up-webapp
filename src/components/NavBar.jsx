@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom"
 import imgHome from '../assets/home.png'
 import imgLibrary from '../assets/library.png'
-import imgCart from '../assets/cart.png'
 import loadImg from "../assets/black.jpg"
 import { useEffect, useState } from "react"
 import axios from "axios"
@@ -24,9 +23,9 @@ function NavBar() {
     <nav className="navBar">
       <ul>
 
-      <Link to={"/"} ><img src={imgHome} alt="NavImg"/></Link>
-      <Link to={"/library"} ><img src={imgLibrary} alt="NavImg"/></Link>
-      <Link to={"/profile"} ><img className="navBarProfile" src={profile} alt="NavImg"/></Link>
+      <Link className="navButton" to={"/"} ><img src={imgHome} alt="NavImg"/></Link>
+      <Link className="navButton" to={"/library"} ><img src={imgLibrary} alt="NavImg"/></Link>
+      <Link className="navButton" to={"/profile"} ><img className="navBarProfile" src={profile} alt="NavImg"/></Link>
 
       </ul>
     </nav>

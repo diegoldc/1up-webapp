@@ -41,12 +41,12 @@ function FilteredSearch() {
     })}
     </div>
 
-    <div style={{margin:"20px"}}>
+    <div className="pagesBtns">
     
-    <button onClick={() => setCurrentPage(currentPage - 1)} disabled={pageInfo.previous == "null" ? true : false}>
+    <button className="button3D" onClick={() => setCurrentPage(currentPage - 1)} disabled={pageInfo.previous == "null" ? true : false}>
       Previous
     </button>
-    <button onClick={() => setCurrentPage(currentPage + 1)} disabled={pageInfo.next == "null" ? true : false}>
+    <button className="button3D" onClick={() => setCurrentPage(currentPage + 1)} disabled={pageInfo.next == "null" ? true : false}>
       Next
     </button>
     </div>

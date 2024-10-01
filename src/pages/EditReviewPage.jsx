@@ -58,24 +58,24 @@ function EditReviewPage() {
 
   return (
     <div>
-      <h2>Editar Review</h2>
-      <div>
+      <div style={{display:"flex",alignItems:"center"}}>
         <img
           style={{
-            height: "40px",
-            width: "40px",
+            height: "60px",
+            width: "60px",
             overflow: "hidden",
             borderRadius: "40px",
           }}
           src={usrPic}
           alt=""
         />
-        <p>User name: {usrName} </p>
+        <p style={{margin:"0px 0px 0px 10px",fontSize:"1.7rem"}}>{usrName} </p>
       </div>
       <Form onSubmit={handleSubmit}>
         <Form.Group className="mb-3">
           <Form.Label>Rating:</Form.Label>
           <Form.Select
+            className="bg-dark text-light"
             type="number"
             name="rating"
             value={editRating}
@@ -94,13 +94,14 @@ function EditReviewPage() {
         <Form.Group>
           <Form.Label>Review:</Form.Label>
           <Form.Control
+            className="bg-dark text-light"
             name="content"
             value={editContent}
             onChange={() => setEditContent(event.target.value)}
             required
           />
         </Form.Group>
-        <Button type="submit">Edit Review</Button>
+        <button className="button3D" type="submit">Edit Review</button>
       </Form>
     </div>
   );

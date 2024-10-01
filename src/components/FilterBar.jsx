@@ -42,7 +42,7 @@ function FilterBar() {
   return (
     <nav
       style={{
-        margin: "20px 0",
+        margin: "5px 0px 20px 0",
         display: "flex",
         justifyContent: "center",
         gap: "20px",

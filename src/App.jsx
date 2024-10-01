@@ -17,15 +17,16 @@ function App() {
   
   return (
     <>
+    <img 
+    className='pageLogo'
+      src={imgLogo} 
+      style={{
+        width: "45px",
+        height: "45px"                        
+      }} 
+      alt="LOGO" 
+    />
     <NavBar />
-        <img 
-          src={imgLogo} 
-          style={{
-            width: "100px",
-            height: "100px"                        
-          }} 
-          alt="LOGO" 
-        />
 
     <Routes>
       <Route path='/' element={<HomePage />} />

@@ -63,15 +63,18 @@ function AddReviewPage() {
 
   return (
     <div>
-      <h2>Añadir Review</h2>
+      <h2>Add a new Review</h2>
         <div>
           <img style={{height:"40px",width:"40px",overflow:"hidden",borderRadius:"40px"}} src={usrPic} alt="" />
           <p>User name: {usrName} </p>
         </div>
       <Form onSubmit={handleSubmit}>
       <Form.Group className="mb-3">
+
+
           <Form.Label>Rating:</Form.Label>
           <Form.Select
+            className="bg-dark text-light"
             name="rating"
             value={formData.rating}
             onChange={handleChange}
@@ -89,13 +92,14 @@ function AddReviewPage() {
         <Form.Group className="mb-3">
           <Form.Label>Review:</Form.Label>
           <Form.Control
+            className="bg-dark text-light"
             name="content"
             value={formData.content}
             onChange={handleChange}
             required
           />
         </Form.Group>
-        <Button type="submit">Enviar Review</Button>
+        <button className="button3D" type="submit">Send</button>
       </Form>
     </div>
   );

@@ -9,12 +9,15 @@ function StoreGameCard({id,name,rating,background_image,tags}) {
   //   randNum = Math.floor(Math.random() * tags)-3
   // } 
 
+  if(name.length > 25){
+    name = name.slice(0,23) + "..."
+  }
 
   return (
     <Link to={`/games/${id}`} style={{textDecoration:"none"}} >
-    <Card border="dark" className="gameCard" style={{ width: '18rem',height:'18rem' }}>
+    <Card border="dark" className="gameCard" style={{ width: '18rem',height:'15rem' }}>
       <Card.Img style={{height:"160px",objectFit: "cover"}} variant="top" src={background_image} alt="" />
-      <Card.Body>
+      <Card.Body className="cardContent" >
       <Card.Title>{name}</Card.Title>
       <Card.Subtitle  >rating: {rating}</Card.Subtitle>
       <Card.Text>

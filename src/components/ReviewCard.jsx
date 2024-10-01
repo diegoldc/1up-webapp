@@ -22,9 +22,9 @@ function ReviewCard({content,profilePic,userName,rating,screenshots,usrName,id,g
       {usrName===userName && (
         <>
         <Link to={`/games/${gameId}/editReview/${id}`}>
-        <button>edit</button>
+        <button className="button3D">Edit</button>
         </Link>
-        <button onClick={handleDelete} >delete</button>
+        <button className="button3D" onClick={handleDelete} >Delete</button>
         </>
       )}
     </div>

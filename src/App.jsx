@@ -12,6 +12,7 @@ import ProfilePage from './pages/ProfilePage'
 import Library from './pages/Library'
 import imgLogo from './assets/1upLogo.png'
 import FilteredSearch from './pages/FilteredSearch'
+import MyGamePage from './pages/MyGamePage'
 
 function App() {
   
@@ -30,13 +31,14 @@ function App() {
 
     <Routes>
       <Route path='/' element={<HomePage />} />
-      <Route path='/store' element={<StorePage />} />
+      <Route path='/home' element={<StorePage />} />
       <Route path='/games/:gameId' element={<GamePage />} />
       <Route path='/games/:gameId/addReview' element={<AddReview />} />
       <Route path='/games/:gameId/editReview/:reviewId' element={<EditReviewPage/>}  />
       <Route path='/profile' element={<ProfilePage/>}/>
       <Route path='/library' element={<Library/>} />
       <Route path='/search/:filterName/:filterId' element={<FilteredSearch/>} />
+      <Route path='/myGames/:myGameId' element={<MyGamePage />} />
 
 
       <Route path="*" element={<NotFoundPage />} />

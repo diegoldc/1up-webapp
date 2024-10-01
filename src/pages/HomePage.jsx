@@ -4,7 +4,7 @@ import { useEffect } from "react"
 function HomePage() {
   const navigate = useNavigate()
   useEffect(() => {
-    navigate('/store')
+    navigate('/home')
   },[])
   return(
     <></>

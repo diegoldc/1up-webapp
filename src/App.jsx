@@ -10,23 +10,32 @@ import AddReview from './pages/AddReview'
 import EditReviewPage from './pages/EditReviewPage'
 import ProfilePage from './pages/ProfilePage'
 import Library from './pages/Library'
-import imgLogo from './assets/1upLogo.svg'
+import imgLogo from './assets/1upLogo.png'
+import { Link } from 'react-router-dom'
 
 function App() {
   
   return (
     <>
     <NavBar />
-    <img 
+    <div>
+        <img 
           src={imgLogo} 
           style={{
-            maxWidth: '100%',       
-            maxHeight: '100%',     
-            height: '100px',       
-            width: '400px',                   
+            width: "100px",
+            height: "100px"                        
           }} 
           alt="LOGO" 
         />
+        
+        <nav style={{ margin: "20px 0", display: "flex", justifyContent: "center", gap: "20px" }}>
+          <Link to="/tops" style={{ textDecoration: 'none', fontWeight: 'bold' }}>Tops</Link>
+          <Link to="/news" style={{ textDecoration: 'none', fontWeight: 'bold' }}>News</Link>
+          <Link to="/deals" style={{ textDecoration: 'none', fontWeight: 'bold' }}>Deals</Link>
+          <Link to="/platforms" style={{ textDecoration: 'none', fontWeight: 'bold' }}>Platforms</Link>
+        </nav>
+
+      </div>
     <Routes>
       <Route path='/' element={<HomePage />} />
       <Route path='/store' element={<StorePage />} />

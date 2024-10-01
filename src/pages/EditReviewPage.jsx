@@ -72,7 +72,7 @@ function EditReviewPage() {
         />
         <p>User name: {usrName} </p>
       </div>
-      <Form.Group onSubmit={handleSubmit}>
+      <Form onSubmit={handleSubmit}>
         <Form.Group className="mb-3">
           <Form.Label>Rating:</Form.Label>
           <Form.Select
@@ -81,8 +81,6 @@ function EditReviewPage() {
             value={editRating}
             onChange={() => setEditRating(event.target.value)}
             required
-            // min="1"
-            // max="5"
           >
             <option value="">Select Rating</option>
             <option value="0">0</option>
@@ -103,7 +101,7 @@ function EditReviewPage() {
           />
         </Form.Group>
         <Button type="submit">Edit Review</Button>
-      </Form.Group>
+      </Form>
     </div>
   );
 }

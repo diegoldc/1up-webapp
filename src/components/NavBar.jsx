@@ -26,7 +26,6 @@ function NavBar() {
 
       <Link to={"/"} ><img src={imgHome} alt="NavImg"/></Link>
       <Link to={"/library"} ><img src={imgLibrary} alt="NavImg"/></Link>
-      <Link to={"/cart"} ><img src={imgCart} alt="NavImg"/></Link>
       <Link to={"/profile"} ><img className="navBarProfile" src={profile} alt="NavImg"/></Link>
 
       </ul>

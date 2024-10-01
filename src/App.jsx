@@ -11,14 +11,13 @@ import EditReviewPage from './pages/EditReviewPage'
 import ProfilePage from './pages/ProfilePage'
 import Library from './pages/Library'
 import imgLogo from './assets/1upLogo.png'
-import { Link } from 'react-router-dom'
+import FilteredSearch from './pages/FilteredSearch'
 
 function App() {
   
   return (
     <>
     <NavBar />
-    <div>
         <img 
           src={imgLogo} 
           style={{
@@ -27,15 +26,7 @@ function App() {
           }} 
           alt="LOGO" 
         />
-        
-        <nav style={{ margin: "20px 0", display: "flex", justifyContent: "center", gap: "20px" }}>
-          <Link to="/tops" style={{ textDecoration: 'none', fontWeight: 'bold' }}>Tops</Link>
-          <Link to="/news" style={{ textDecoration: 'none', fontWeight: 'bold' }}>News</Link>
-          <Link to="/deals" style={{ textDecoration: 'none', fontWeight: 'bold' }}>Deals</Link>
-          <Link to="/platforms" style={{ textDecoration: 'none', fontWeight: 'bold' }}>Platforms</Link>
-        </nav>
 
-      </div>
     <Routes>
       <Route path='/' element={<HomePage />} />
       <Route path='/store' element={<StorePage />} />
@@ -44,6 +35,7 @@ function App() {
       <Route path='/games/:gameId/editReview/:reviewId' element={<EditReviewPage/>}  />
       <Route path='/profile' element={<ProfilePage/>}/>
       <Route path='/library' element={<Library/>} />
+      <Route path='/search/:filterName/:filterId' element={<FilteredSearch/>} />
 
 
       <Route path="*" element={<NotFoundPage />} />

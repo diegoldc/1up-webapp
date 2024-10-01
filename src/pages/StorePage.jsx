@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import StoreGameCard from "../components/StoreGameCard";
 import SearchBar from "../components/SearchBar";
+import FilterBar from "../components/FilterBar";
 
 function StorePage() {
   const [gameList, setGameList] = useState(null);
@@ -18,22 +19,10 @@ function StorePage() {
 
     try {
       const response = await axios.get(`${import.meta.env.VITE_RAWG_URL}/games${import.meta.env.VITE_RAWG_KEY}&page=${page}`);
-      setPageInfo(response.data);
+      setPageInfo({ next:`${response.data.next}`, previous:`${response.data.previous}`});
       setGameList(response.data.results);
     } catch (error) {
       console.log(error);
-    }
-  };
-
-  const handleNextPage = () => {
-    if (pageInfo.next) {
-      setCurrentPage(currentPage + 1)
-    }
-  };
-
-  const handlePrevPage = () => {
-    if (pageInfo.previous) {
-      setCurrentPage(currentPage - 1)
     }
   };
 
@@ -43,6 +32,7 @@ function StorePage() {
 
   return (
     <>
+      <FilterBar />
       <SearchBar setGameList={setGameList}/>
 
       {/* <Carousel>
@@ -79,11 +69,11 @@ function StorePage() {
 
       <div style={{margin:"20px"}}>
         
-        <button onClick={handlePrevPage} disabled={!pageInfo.previous}>
-          Anterior
+        <button onClick={() => setCurrentPage(currentPage - 1)} disabled={pageInfo.previous == "null" ? true : false}>
+          Previous
         </button>
-        <button onClick={handleNextPage} disabled={!pageInfo.next}>
-          Siguiente
+        <button onClick={() => setCurrentPage(currentPage + 1)} disabled={pageInfo.next == "null" ? true : false}>
+          Next
         </button>
       </div>
     </>

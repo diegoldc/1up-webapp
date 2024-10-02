@@ -31,7 +31,7 @@ function Library() {
 
       {myGames.map((eachGame) => {
         return (
-          <Link key={eachGame.id} to={`/myGames/${eachGame.id}`} style={{textDecoration:"none"}} >
+          <Link key={eachGame.id} to={`/vault/${eachGame.id}`} style={{textDecoration:"none"}} >
             <Card border="dark" className="gameCard" style={{ width: '10rem',height:'15rem' }}>
               <Card.Img style={{height:"160px",objectFit: "cover"}} variant="top" src={eachGame.cover} alt="" />
               <Card.Body className="cardContent" >

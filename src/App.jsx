@@ -13,6 +13,9 @@ import Library from './pages/Library'
 import imgLogo from './assets/1upLogo.png'
 import FilteredSearch from './pages/FilteredSearch'
 import MyGamePage from './pages/MyGamePage'
+import AddToVault from './pages/AddToVault'
+import FallbackVaultPage from './pages/FallbackVaultPage'
+import EditMyGame from './pages/EditMyGame'
 
 function App() {
   
@@ -31,14 +34,17 @@ function App() {
 
     <Routes>
       <Route path='/' element={<HomePage />} />
-      <Route path='/home' element={<StorePage />} />
+      <Route path='/explore' element={<StorePage />} />
       <Route path='/games/:gameId' element={<GamePage />} />
       <Route path='/games/:gameId/addReview' element={<AddReview />} />
       <Route path='/games/:gameId/editReview/:reviewId' element={<EditReviewPage/>}  />
       <Route path='/profile' element={<ProfilePage/>}/>
-      <Route path='/library' element={<Library/>} />
+      <Route path='/vault' element={<Library/>} />
       <Route path='/search/:filterName/:filterId' element={<FilteredSearch/>} />
-      <Route path='/myGames/:myGameId' element={<MyGamePage />} />
+      <Route path='/vault/:myGameId' element={<MyGamePage />} />
+      <Route path='/games/:gameId/addToVault' element={<AddToVault />} />
+      <Route path='/vault/fallback' element={<FallbackVaultPage/>} />
+      <Route path='/vault/:myGameId/edit' element={<EditMyGame />} />
 
 
       <Route path="*" element={<NotFoundPage />} />

@@ -50,6 +50,7 @@ function GamePage() {
     );
   };
 
+
   if (gameDetails === null) {
     return <h1>...Loading</h1>;
   }
@@ -97,7 +98,10 @@ function GamePage() {
         </span>
         <button className="showMore" onClick={() => setIsHidden(!isHidden)}>{isHidden ? "...show more" : "...show less"}</button>
       </p>
-      <Link state={gameDetails.name} to={`/games/${params.gameId}/addReview`}>
+      <Link state={gameDetails.id} to={`/games/${gameDetails.id}/addToVault`} >
+      <button className="button3D">Add to vault</button>
+      </Link>
+      <Link state={gameDetails.name} to={`/games/${gameDetails.id}/addReview`}>
         <button className="button3D">Add review</button>
       </Link>
       {reviews === null ? (

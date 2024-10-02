@@ -24,7 +24,7 @@ function NavBar() {
       <ul>
 
       <Link className="navButton" to={"/"} ><img src={imgHome} alt="NavImg"/></Link>
-      <Link className="navButton" to={"/library"} ><img src={imgLibrary} style={{height:"45px", width:"45px",margin:"2.5px"}} alt="NavImg"/></Link>
+      <Link className="navButton" to={"/vault"} ><img src={imgLibrary} style={{height:"45px", width:"45px",margin:"2.5px"}} alt="NavImg"/></Link>
       <Link className="navButton" to={"/profile"} ><img className="navBarProfile" src={profile} alt="NavImg"/></Link>
 
       </ul>

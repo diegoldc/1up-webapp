@@ -15,7 +15,6 @@ function MyGamePage() {
   const getData = async () => {
     try {
       const response = await axios.get(`${import.meta.env.VITE_LOCAL_URL}/myGames/${myGameId}`)
-      console.log(response.data)
       setMyGameData(response.data)
     } catch (error) {
       console.log("my game data",error)
@@ -41,6 +40,12 @@ function MyGamePage() {
     <Link to={`/games/${myGameData.gameId}`}>
     <button className="button3D">See in Store</button>
     </Link>
+    <Link to={`/vault/${myGameId}/edit`}>
+    <button className="button3D">Edit my Game</button>
+    </Link>
+    <button className="button3D">Add screenshot</button>
+    <button className="button3D">Remove from vault</button>
+
     </>
   )
 }

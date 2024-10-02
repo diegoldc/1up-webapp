@@ -59,31 +59,6 @@ function GamePage() {
   return (
     <div>
       <h3>{gameDetails.name}</h3>
-      {/* <Carousel>
-      <Carousel.Item>
-        <ExampleCarouselImage text="First slide" />
-        <Carousel.Caption>
-          <h3>First slide label</h3>
-          <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-        </Carousel.Caption>
-      </Carousel.Item>
-      <Carousel.Item>
-        <ExampleCarouselImage text="Second slide" />
-        <Carousel.Caption>
-          <h3>Second slide label</h3>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-        </Carousel.Caption>
-      </Carousel.Item>
-      <Carousel.Item>
-        <ExampleCarouselImage text="Third slide" />
-        <Carousel.Caption>
-          <h3>Third slide label</h3>
-          <p>
-            Praesent commodo cursus magna, vel scelerisque nisl consectetur.
-          </p>
-        </Carousel.Caption>
-      </Carousel.Item>
-    </Carousel> */}
       <img
         src={gameDetails.background_image}
         alt="image"
@@ -106,7 +81,7 @@ function GamePage() {
         <button className="button3D">Add review</button>
       </Link>
       {reviews === null ? (
-        <h1>...Loading reviews</h1>
+        <Spinner />
       ) : (
         reviews.map((rev) => (
           <ReviewCard

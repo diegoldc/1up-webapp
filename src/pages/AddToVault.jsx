@@ -2,6 +2,7 @@ import axios from "axios"
 import { useNavigate, useParams } from "react-router-dom"
 import { useState , useEffect } from "react"
 import Form from 'react-bootstrap/Form';
+import Spinner from '../components/Spinner';
 
 
 function AddToVault() {
@@ -63,7 +64,7 @@ function AddToVault() {
   }
 
   if(possiblePlatforms === null){
-    return (<h1>...Loading</h1>)
+    return (<Spinner />)
   }
 
   return (

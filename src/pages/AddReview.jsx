@@ -2,6 +2,7 @@ import { useState , useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import Form from 'react-bootstrap/Form';
+import Spinner from '../components/Spinner';
 
 function AddReviewPage() {
   const { gameId } = useParams();
@@ -57,7 +58,7 @@ function AddReviewPage() {
   };
 
   if(usrName === null || usrPic === null) {
-    return (<h1>...Loading</h1>)
+    return (<Spinner />)
   }
 
   return (

@@ -13,7 +13,6 @@ function SearchBar({ setGameList }) {
       );
       console.log(response);
       setGameList(response.data.results);
-      // setSearch("")
     } catch (error) {
       console.log(error);
     }

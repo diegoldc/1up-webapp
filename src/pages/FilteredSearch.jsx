@@ -2,6 +2,7 @@ import { useParams } from "react-router-dom"
 import { useEffect , useState } from "react"
 import axios from "axios"
 import StoreGameCard from "../components/StoreGameCard"
+import Spinner from '../components/Spinner';
 
 
 function FilteredSearch() {
@@ -29,7 +30,7 @@ function FilteredSearch() {
   }
 
   if (gameList === null) {
-    return <h1>...Loading</h1>;
+    return <Spinner />;
   }
 
 

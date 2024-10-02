@@ -2,6 +2,7 @@ import axios from "axios"
 import { useEffect, useState } from "react"
 import { Link } from "react-router-dom"
 import { Card } from "react-bootstrap"
+import Spinner from "../components/Spinner"
 
 function Library() {
 
@@ -23,7 +24,7 @@ function Library() {
   }
 
   if (myGames === null) {
-    return <h3>...Loading</h3>
+    return <Spinner />
   }
 
   return (

@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 import Form from "react-bootstrap/Form";
+import Spinner from "../components/Spinner";
 
 function EditReviewPage() {
   const { gameId, reviewId } = useParams();
@@ -52,7 +53,7 @@ function EditReviewPage() {
   };
 
   if (editContent === null || editRating === null) {
-    return <h1>...Loading</h1>;
+    return <Spinner />
   }
 
   return (

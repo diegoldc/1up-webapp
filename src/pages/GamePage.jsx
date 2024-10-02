@@ -2,6 +2,7 @@ import { Link, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import ReviewCard from "../components/ReviewCard";
+import Spinner from "../components/Spinner";
 
 function GamePage() {
   const params = useParams();
@@ -52,7 +53,7 @@ function GamePage() {
 
 
   if (gameDetails === null) {
-    return <h1>...Loading</h1>;
+    return <Spinner />
   }
 
   return (

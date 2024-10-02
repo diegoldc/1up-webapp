@@ -1,14 +1,14 @@
 import { Link } from "react-router-dom"
 import imgHome from '../assets/home.png'
 import imgLibrary from '../assets/library.png'
-import loadImg from "../assets/black.jpg"
 import { useEffect, useState } from "react"
 import axios from "axios"
+import appLogo from '../assets/1upLogo.png'
 
 
 function NavBar() {
 
-  const [profile, setProfile] = useState(loadImg)
+  const [profile, setProfile] = useState(appLogo)
 
   useEffect(() => {
     getProfile()

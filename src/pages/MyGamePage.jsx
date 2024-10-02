@@ -1,53 +1,101 @@
-import { useState , useEffect } from "react"
-import { Link , useParams } from "react-router-dom"
-import axios from "axios"
-
+import { useState, useEffect } from "react";
+import { Link, useParams, useNavigate } from "react-router-dom";
+import axios from "axios";
+import Popup from "reactjs-popup";
+import "reactjs-popup/dist/index.css";
+import Form from "react-bootstrap/Form";
+import CarouselScreen from "../components/CarouselScreen";
+import Spinner from "../components/Spinner";
 
 function MyGamePage() {
-
-  const {myGameId} = useParams()
-  const [ myGameData , setMyGameData ] = useState(null)
+  const navigate = useNavigate();
+  const { myGameId } = useParams();
+  const [myGameData, setMyGameData] = useState(null);
+  const [newScreenshot, setNewScreenshot] = useState("https://");
 
   useEffect(() => {
-    getData()
-  }, [])
+    getData();
+  }, []);
 
   const getData = async () => {
     try {
-      const response = await axios.get(`${import.meta.env.VITE_LOCAL_URL}/myGames/${myGameId}`)
-      setMyGameData(response.data)
+      const response = await axios.get(
+        `${import.meta.env.VITE_LOCAL_URL}/myGames/${myGameId}`
+      );
+      setMyGameData(response.data);
     } catch (error) {
-      console.log("my game data",error)
+      console.log("my game data", error);
     }
-  }
+  };
 
+  const handleDelete = () => {
+    axios.delete(`${import.meta.env.VITE_LOCAL_URL}/myGames/${myGameId}`);
+    navigate("/vault");
+  };
 
-  if(myGameData === null){
-    return(<h1>...loading</h1>)
+  const handleAddScreenshot = (e, close) => {
+    e.preventDefault();
+    let allScreenshots = myGameData.screenshots;
+    allScreenshots = [...allScreenshots, newScreenshot];
+    axios.patch(`${import.meta.env.VITE_LOCAL_URL}/myGames/${myGameId}`, {
+      screenshots: allScreenshots,
+    });
+    close();
+    getData()
+  };
+
+  if (myGameData === null) {
+    return <Spinner />
   }
 
   return (
     <>
-    <h1>{myGameData.name}</h1>
-    <img style={{ width:"90vw",maxWidth:"350px"}} src={myGameData.cover} alt="" />
-    <h3>Hours Played: {myGameData.hoursPlayed}</h3>
-    {myGameData.isGameCompleted ? (
-      <p style={{color:"green"}} >GAME COMPLETE</p>
-    ) : (
-      <p style={{color:"red"}} >GAME NOT COMPLETE</p>
-    )}
-    <p>Platform: {myGameData.platform}</p>
-    <Link to={`/games/${myGameData.gameId}`}>
-    <button className="button3D">See in Store</button>
-    </Link>
-    <Link to={`/vault/${myGameId}/edit`}>
-    <button className="button3D">Edit my Game</button>
-    </Link>
-    <button className="button3D">Add screenshot</button>
-    <button className="button3D">Remove from vault</button>
+      <h1>{myGameData.name}</h1>
+      {/* <img style={{ width:"90vw",maxWidth:"350px"}} src={myGameData.cover} alt="" /> */}
 
+      <CarouselScreen cover={myGameData.cover} screenshots={myGameData.screenshots} />
+
+      <h3>Hours Played: {myGameData.hoursPlayed}</h3>
+      {myGameData.isGameCompleted ? (
+        <p style={{ color: "green" }}>GAME COMPLETE</p>
+      ) : (
+        <p style={{ color: "red" }}>GAME NOT COMPLETE</p>
+      )}
+      <p>Platform: {myGameData.platform}</p>
+      <Link to={`/games/${myGameData.gameId}`}>
+        <button className="button3D">See in Store</button>
+      </Link>
+      <Link to={`/vault/${myGameId}/edit`}>
+        <button className="button3D">Edit my Game</button>
+      </Link>
+      <Popup trigger={<button className="button3D">Add screenshot</button>}>
+        {(close) => (
+          <Form onSubmit={() => handleAddScreenshot(event, close)}>
+            <Form.Group>
+              <Form.Label>Screenshot URL:</Form.Label>
+              <Form.Control
+                className="bg-dark text-light"
+                name="screenshot"
+                value={newScreenshot}
+                onChange={() => setNewScreenshot(event.target.value)}
+              />
+            </Form.Group>
+            <button type="submit">Send</button>
+          </Form>
+        )}
+      </Popup>
+      <Popup trigger={<button className="button3D">Remove from vault</button>}>
+        {(close) => (
+          <>
+            <p>Are you sure you want to delete this game from your vault?</p>
+            <button onClick={close}>Go back</button>
+            <button onClick={handleDelete}>Delete</button>
+          </>
+        )}
+      </Popup>
+      <button className="button3D">Play</button>
     </>
-  )
+  );
 }
 
-export default MyGamePage
+export default MyGamePage;

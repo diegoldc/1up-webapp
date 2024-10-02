@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 import Form from "react-bootstrap/Form";
+import Spinner from '../components/Spinner';
 
 function EditMyGame() {
 
@@ -47,7 +48,7 @@ function EditMyGame() {
   };
 
   if(gameInfo === null){
-    return ( <h1>...Loading</h1> )
+    return ( <Spinner /> )
   }
 
   return (

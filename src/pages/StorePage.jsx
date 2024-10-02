@@ -3,6 +3,7 @@ import axios from "axios";
 import StoreGameCard from "../components/StoreGameCard";
 import SearchBar from "../components/SearchBar";
 import FilterBar from "../components/FilterBar";
+import Spinner from "../components/Spinner";
 
 function StorePage() {
   const [gameList, setGameList] = useState(null);
@@ -27,7 +28,7 @@ function StorePage() {
   };
 
   if (gameList === null) {
-    return <h1>...Loading</h1>;
+    return <Spinner />
   }
 
   return (

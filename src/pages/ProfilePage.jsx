@@ -12,7 +12,7 @@ function ProfilePage() {
   }, [])
 
   const getProfile = async () => {
-    const response = await axios.get(`${import.meta.env.VITE_LOCAL_URL}/profile`)
+    const response = await axios.get(`${import.meta.env.VITE_LOCAL_URL}/profiles`)
     setProfile(response.data[0])
   }
 

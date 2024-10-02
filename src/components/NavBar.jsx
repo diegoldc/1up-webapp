@@ -9,14 +9,20 @@ import appLogo from '../assets/1upLogo.png'
 function NavBar() {
 
   const [profile, setProfile] = useState(appLogo)
+  const [ userId , setUserId ] = useState(null)
 
   useEffect(() => {
     getProfile()
   }, [])
 
   const getProfile = async () => {
-    const response = await axios.get(`${import.meta.env.VITE_LOCAL_URL}/profile`)
-    setProfile(response.data[0].profilePic)
+    try {
+      const response = await axios.get(`${import.meta.env.VITE_LOCAL_URL}/profiles`)
+      setProfile(response.data[0].profilePic)
+      setUserId(response.data[0].id)
+    } catch (error) {
+      console.log("fetch profile",error)
+    }
   }
 
   return (
@@ -25,7 +31,8 @@ function NavBar() {
 
       <Link className="navButton" to={"/"} ><img src={imgHome} alt="NavImg"/></Link>
       <Link className="navButton" to={"/vault"} ><img src={imgLibrary} style={{height:"45px", width:"45px",margin:"2.5px"}} alt="NavImg"/></Link>
-      <Link className="navButton" to={"/profile"} ><img className="navBarProfile" src={profile} alt="NavImg"/></Link>
+      <Link className="navButton" to={`/myReviews/${userId}`} ><img src={imgLibrary} style={{height:"45px", width:"45px",margin:"2.5px"}} alt="NavImg"/></Link>
+      <Link className="navButton" to={"/profiles"} ><img className="navBarProfile" src={profile} alt="NavImg"/></Link>
 
       </ul>
     </nav>

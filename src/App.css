@@ -8,6 +8,7 @@
 #root, html {
   max-width: 1280px;
   margin: 0 auto;
+  margin-bottom: 100px;
   padding: 10px;
   text-align: center;
   color-scheme: light dark;
@@ -170,6 +171,11 @@
   color: wheat;
 
 
+}
+
+.carousel-indicators {
+  margin-bottom: 0px !important;
+  height: 18px;
 }
 
 .gameDesc {

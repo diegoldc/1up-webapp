@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom"
 import axios from "axios"
+import logo from "../assets/1upLogo.png"
 
-function ReviewCard({content,profilePic,userName,rating,screenshots,usrName,id,gameId, onDelete}) {
-
+function ReviewCard({content,profilePic,userName,rating,usrName,id,gameId, onDelete,gameName,oneUser}) {
 
   const handleDelete = async () => {
     try {
@@ -14,8 +14,9 @@ function ReviewCard({content,profilePic,userName,rating,screenshots,usrName,id,g
   }
 
   return (
-    <div style={{border:"1px solid white", margin:"10px"}}>
-      <img style={{height:"40px",width:"40px",overflow:"hidden",borderRadius:"40px"}} src={profilePic} alt="profilePic" />
+    <div style={{border:"1px solid white", margin:"10px", paddingTop: "5px"}}>
+      {oneUser && <h2>{gameName}</h2>}
+      <img style={{height:"40px",width:"40px",overflow:"hidden",borderRadius:"40px"}} src={profilePic===null? logo : profilePic} alt="profilePic" />
       <h3>{userName}</h3>
       <p>Rating: {rating}</p>
       <p>{content}</p>

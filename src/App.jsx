@@ -16,6 +16,7 @@ import MyGamePage from './pages/MyGamePage'
 import AddToVault from './pages/AddToVault'
 import FallbackVaultPage from './pages/FallbackVaultPage'
 import EditMyGame from './pages/EditMyGame'
+import MyReviewsPage from './pages/MyReviewsPage'
 
 function App() {
   
@@ -38,13 +39,14 @@ function App() {
       <Route path='/games/:gameId' element={<GamePage />} />
       <Route path='/games/:gameId/addReview' element={<AddReview />} />
       <Route path='/games/:gameId/editReview/:reviewId' element={<EditReviewPage/>}  />
-      <Route path='/profile' element={<ProfilePage/>}/>
+      <Route path='/profiles' element={<ProfilePage/>}/>
       <Route path='/vault' element={<Library/>} />
       <Route path='/search/:filterName/:filterId' element={<FilteredSearch/>} />
       <Route path='/vault/:myGameId' element={<MyGamePage />} />
       <Route path='/games/:gameId/addToVault' element={<AddToVault />} />
       <Route path='/vault/fallback' element={<FallbackVaultPage/>} />
       <Route path='/vault/:myGameId/edit' element={<EditMyGame />} />
+      <Route path='/myReviews/:userId' element={<MyReviewsPage />} />
 
 
       <Route path="*" element={<NotFoundPage />} />

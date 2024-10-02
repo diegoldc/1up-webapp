@@ -3,6 +3,8 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import ReviewCard from "../components/ReviewCard";
 import Spinner from "../components/Spinner";
+import CarouselScreen from "../components/CarouselScreen";
+import GameCarousel from "../components/GameCarousel";
 
 function GamePage() {
   const params = useParams();
@@ -11,10 +13,15 @@ function GamePage() {
   const [reviews, setReviews] = useState(null);
   const [usrName, setUsrName] = useState(null);
   const [ isHidden , setIsHidden ] = useState(true)
+  const [ dataArray , setDataArray ] = useState([])
+  const [ suggestionArray , setSuggestionArray ] = useState([])
+  let picArray = []
+
+
 
   useEffect(() => {
     getData();
-  }, []);
+  }, [params]);
 
   const getData = async () => {
     try {
@@ -23,6 +30,7 @@ function GamePage() {
           import.meta.env.VITE_RAWG_KEY
         }`
       );
+      console.log(response.data)
       setGameDetails(response.data);
     } catch (error) {
       console.log("FATAL ERROR (game)", error);
@@ -32,16 +40,30 @@ function GamePage() {
         `${import.meta.env.VITE_LOCAL_URL}/reviews?gameId=${params.gameId}`
       );
       setReviews(revResponse.data);
+      console.log(revResponse.data)
     } catch (error) {
       console.log("FATAL ERROR (reviews)", error);
     }
     try {
       const userData = await axios.get(
-        `${import.meta.env.VITE_LOCAL_URL}/profile`
+        `${import.meta.env.VITE_LOCAL_URL}/profiles`
       );
       setUsrName(userData.data[0].user);
     } catch (error) {
       console.log("FATAL ERROR (profile)", error);
+    }
+    try {
+      const screenshotsData = await axios.get(`${import.meta.env.VITE_RAWG_URL}/games/${params.gameId}/screenshots${import.meta.env.VITE_RAWG_KEY}`)
+      setDataArray(screenshotsData.data.results)
+
+    } catch (error) {
+      console.log("screenshots",error)
+    }
+    try {
+      const suggestionsData = await axios.get(`${import.meta.env.VITE_RAWG_URL}/games/${params.gameId}/game-series${import.meta.env.VITE_RAWG_KEY}`)
+      setSuggestionArray(suggestionsData.data.results)
+    } catch (error) {
+      console.log("suggested",error)
     }
   };
 
@@ -52,18 +74,20 @@ function GamePage() {
   };
 
 
+
   if (gameDetails === null) {
     return <Spinner />
+  }
+  if(dataArray.length>1){
+    dataArray.map((imgObj) => { 
+    picArray.unshift(imgObj.image)
+    })
   }
 
   return (
     <div>
       <h3>{gameDetails.name}</h3>
-      <img
-        src={gameDetails.background_image}
-        alt="image"
-        style={{ width: "200px", borderRadius: "15px" }}
-      />
+      <CarouselScreen cover={gameDetails.background_image} screenshots={picArray}/>
       <p className="gameDesc">
         {gameDetails.description_raw.substring(0, 200)}<span hidden={!isHidden}>...</span>
         <span hidden={isHidden}>
@@ -85,6 +109,7 @@ function GamePage() {
       ) : (
         reviews.map((rev) => (
           <ReviewCard
+            oneUser={false}
             usrName={usrName}
             key={rev.id}
             {...rev}
@@ -92,6 +117,8 @@ function GamePage() {
           />
         ))
       )}
+      <h4>Games from the same series</h4>
+    <GameCarousel suggestionArray={suggestionArray} />
     </div>
   );
 }

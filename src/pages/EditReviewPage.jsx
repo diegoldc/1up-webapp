@@ -20,7 +20,7 @@ function EditReviewPage() {
   const getData = async () => {
     try {
       const userData = await axios.get(
-        `${import.meta.env.VITE_LOCAL_URL}/profile`
+        `${import.meta.env.VITE_LOCAL_URL}/profiles`
       );
       setUsrName(userData.data[0].user);
       setUsrPic(userData.data[0].profilePic);

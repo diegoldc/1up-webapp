@@ -38,8 +38,6 @@ function Library() {
               <Card.Body className="cardContent" >
                 <Card.Title>{eachGame.name}</Card.Title>
                 <Card.Subtitle>Hours: {eachGame.hoursPlayed}</Card.Subtitle>
-                <Card.Text>
-                </Card.Text>
               </Card.Body>
             </Card>
           </Link>

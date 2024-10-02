@@ -15,6 +15,9 @@ function AddReviewPage() {
   });
   const [ usrName , setUsrName ] = useState(null)
   const [ usrPic , setUsrPic ] = useState(null)
+  const [ userId , setUserId ] = useState(null)
+  const [ gameName , setGameName ] = useState(null)
+  const [ wouldRecommend , setWouldRecommend ] = useState(false)
 
   useEffect(() => {
     getData()
@@ -22,11 +25,18 @@ function AddReviewPage() {
 
   const getData = async () => {
     try {
-      const response = await axios.get(`${import.meta.env.VITE_LOCAL_URL}/profile`)
+      const response = await axios.get(`${import.meta.env.VITE_LOCAL_URL}/profiles`)
       setUsrName(response.data[0].user)
       setUsrPic(response.data[0].profilePic)
+      setUserId(response.data[0].id)
     } catch (error) {
       console.log("FATAL ERROR", error)
+    }
+    try {
+      const gameNameData = await axios.get(`${import.meta.env.VITE_RAWG_URL}/games/${gameId}${import.meta.env.VITE_RAWG_KEY}`)
+      setGameName(gameNameData.data.name)
+    } catch (error) {
+      console.log("get game name",error)
     }
   }
 
@@ -43,11 +53,13 @@ function AddReviewPage() {
     try {
       const newReview = {
         ...formData,
+        gameName,
+        profileId: userId,
         userName: usrName,
         profilePic: usrPic,
         rating: parseInt(formData.rating),
         gameId: parseInt(gameId)
-      };
+      }
 
       await axios.post(`${import.meta.env.VITE_LOCAL_URL}/reviews`, newReview);
       
@@ -56,6 +68,14 @@ function AddReviewPage() {
       console.log('Error al crear la review:', error);
     }
   };
+
+  const handleChecked = () => {
+    if(wouldRecommend === false){
+      setWouldRecommend(true)
+    } else{
+      setWouldRecommend(false)
+    }
+  }
 
   if(usrName === null || usrPic === null) {
     return (<Spinner />)
@@ -98,7 +118,15 @@ function AddReviewPage() {
             onChange={handleChange}
             required
           />
-        </Form.Group>
+        </Form.Group>      <Form.Group>
+        <Form.Check
+          type="switch"
+          id="wouldRecommend"
+          label="I would recommend this game"
+          checked={wouldRecommend}
+          onChange={handleChecked}
+        />
+      </Form.Group>
         <button className="button3D" type="submit">Send</button>
       </Form>
     </div>

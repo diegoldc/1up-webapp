@@ -30,7 +30,7 @@ function MyGamePage() {
   return (
     <>
     <h1>{myGameData.name}</h1>
-    <img style={{height:"200px"}} src={myGameData.cover} alt="" />
+    <img style={{ width:"90vw",maxWidth:"350px"}} src={myGameData.cover} alt="" />
     <h3>Hours Played: {myGameData.hoursPlayed}</h3>
     {myGameData.isGameCompleted ? (
       <p style={{color:"green"}} >GAME COMPLETE</p>
@@ -39,7 +39,7 @@ function MyGamePage() {
     )}
     <p>Platform: {myGameData.platform}</p>
     <Link to={`/games/${myGameData.gameId}`}>
-    <button className="button3D" >See in Store</button>
+    <button className="button3D">See in Store</button>
     </Link>
     </>
   )

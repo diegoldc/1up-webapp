@@ -2,6 +2,7 @@ import { useEffect, useState } from "react"
 import axios from "axios"
 import Spinner from '../components/Spinner';
 import { Link } from "react-router-dom";
+import imgRawg from "../assets/powered_by_rawg_logo.png"
 
 function ProfilePage() {
 
@@ -22,6 +23,7 @@ function ProfilePage() {
   }
 
   return (
+    <>
     <div className="profilePage">
       <img className="profPic" src={profile.profilePic} alt="foto" />
 
@@ -35,9 +37,15 @@ function ProfilePage() {
       <Link to={`/myReviews/${profile.id}`}>
       <button className="button3D">See my Reviews</button>
       </Link>
+
+
       </div>
     
     </div>
+      <h5 className="powered">Powered by</h5>
+      <img src={imgRawg} alt="logo_Rawg" />
+      </>
+
   )
 }
 

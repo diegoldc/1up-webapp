@@ -51,7 +51,6 @@ function MyGamePage() {
   return (
     <>
       <h1>{myGameData.name}</h1>
-      {/* <img style={{ width:"90vw",maxWidth:"350px"}} src={myGameData.cover} alt="" /> */}
 
       <CarouselScreen cover={myGameData.cover} screenshots={myGameData.screenshots} />
 
@@ -60,7 +59,7 @@ function MyGamePage() {
       {myGameData.isGameCompleted ? (
         <p style={{ width:"200px", color: "green",backgroundColor:"lightgreen",border:"1px solid green",borderRadius:"5px" }}>GAME COMPLETE</p>
       ) : (
-        <p style={{ width:"200px", color: "red",backgroundColor:"pink",border:"1px solid green",borderRadius:"5px" }}>GAME NOT COMPLETE</p>
+        <p style={{ width:"200px", color: "red",backgroundColor:"pink",border:"1px solid red",borderRadius:"5px" }}>GAME NOT COMPLETE</p>
       )}
       </div>
       <p>Platform: {myGameData.platform}</p>
@@ -96,7 +95,9 @@ function MyGamePage() {
           </>
         )}
       </Popup>
+      <Link to='/play'>
       <button className="button3D playbtn">Play</button>
+      </Link>
       </div>
     </>
   );

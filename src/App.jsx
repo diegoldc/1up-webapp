@@ -17,6 +17,7 @@ import AddToVault from './pages/AddToVault'
 import FallbackVaultPage from './pages/FallbackVaultPage'
 import EditMyGame from './pages/EditMyGame'
 import MyReviewsPage from './pages/MyReviewsPage'
+import PlayPage from './pages/PlayPage'
 
 function App() {
   
@@ -47,6 +48,7 @@ function App() {
       <Route path='/vault/fallback' element={<FallbackVaultPage/>} />
       <Route path='/vault/:myGameId/edit' element={<EditMyGame />} />
       <Route path='/myReviews/:userId' element={<MyReviewsPage />} />
+      <Route path='/play' element={<PlayPage />} />
 
 
       <Route path="*" element={<NotFoundPage />} />

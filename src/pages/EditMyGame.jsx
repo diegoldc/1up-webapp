@@ -54,7 +54,8 @@ function EditMyGame() {
   return (
 
     <Form onSubmit={handleSubmit}>
-      <h2>Edit your game</h2>
+      <h1>Edit your game</h1>
+      <h3>{gameInfo.name}</h3>
       <Form.Group className="mb-3">
         <Form.Label>Cover:</Form.Label>
         <Form.Control

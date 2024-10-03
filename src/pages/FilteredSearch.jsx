@@ -7,7 +7,7 @@ import Spinner from '../components/Spinner';
 
 function FilteredSearch() {
 
-  const {filterName , filterId} = useParams()
+  const {filterName , filterId , tag} = useParams()
   const [gameList, setGameList] = useState(null);
   const [pageInfo, setPageInfo] = useState({ next: null, previous: null });
   const [currentPage, setCurrentPage] = useState(1);
@@ -20,6 +20,7 @@ function FilteredSearch() {
     try {
       const filterData = await axios.get(`${import.meta.env.VITE_RAWG_URL}/games?${filterName}=${filterId}${import.meta.env.VITE_RAWG_KEY_AMP}&page=${page}`)
       setGameList(filterData.data.results)
+      console.log(filterData.data)
       setPageInfo({ next:`${filterData.data.next}`, previous:`${filterData.data.previous}`})
       console.log(filterData.data.results)
       console.log(pageInfo)
@@ -36,6 +37,7 @@ function FilteredSearch() {
 
   return (
     <>
+    <h1>Top {tag} games:</h1>
     <div className="gameList">
     {gameList.map((game) => {
       return <StoreGameCard key={game.id} {...game} />;

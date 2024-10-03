@@ -47,17 +47,11 @@ function FilterBar() {
         gap: "20px",
       }}
     >
-      {/* <Link to="/tops" style={{ textDecoration: "none", fontWeight: "bold" }}>
-        Tops
-      </Link> */}
-      {/* <Link to="/news" style={{ textDecoration: 'none', fontWeight: 'bold' }}>Genre</Link>
-    <Link to="/deals" style={{ textDecoration: 'none', fontWeight: 'bold' }}>Deals</Link>
-    <Link to="/platforms" style={{ textDecoration: 'none', fontWeight: 'bold' }}>Platforms</Link> */}
       <DropdownButton id="dropdown-basic-button" title="Genre" variant="Secondary">
-        {/* <Dropdown.Item href="#/action-1">Action</Dropdown.Item> */}
+
         {genres.map((eachGenre, index) => {
           return (
-            <Dropdown.Item style={{backgroundColor:"rgb(47, 78, 95)",color:"lightblue"}} key={index} href={`/search/genres/${eachGenre.id}`}>
+            <Dropdown.Item style={{backgroundColor:"rgb(47, 78, 95)",color:"lightblue"}} key={index} href={`/search/genres/${eachGenre.id}/${eachGenre.name}`}>
               {eachGenre.name}
             </Dropdown.Item>
           );
@@ -68,7 +62,7 @@ function FilterBar() {
   
       {platforms.map((eachPlatform, index) => {
           return (
-            <Dropdown.Item style={{backgroundColor:"rgb(47, 78, 95)",color:"lightblue"}} key={index} href={`/search/platforms/${eachPlatform.id}`}>
+            <Dropdown.Item style={{backgroundColor:"rgb(47, 78, 95)",color:"lightblue"}} key={index} href={`/search/platforms/${eachPlatform.id}/${eachPlatform.name}`}>
               {eachPlatform.name}
             </Dropdown.Item>
           );

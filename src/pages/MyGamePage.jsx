@@ -56,11 +56,13 @@ function MyGamePage() {
       <CarouselScreen cover={myGameData.cover} screenshots={myGameData.screenshots} />
 
       <h3 style={{marginTop:"20px"}}>Hours Played: {myGameData.hoursPlayed}</h3>
+      <div style={{display:"flex",justifyContent:"center"}}>
       {myGameData.isGameCompleted ? (
-        <p style={{ color: "green" }}>GAME COMPLETE</p>
+        <p style={{ width:"200px", color: "green",backgroundColor:"lightgreen",border:"1px solid green",borderRadius:"5px" }}>GAME COMPLETE</p>
       ) : (
-        <p style={{ color: "red" }}>GAME NOT COMPLETE</p>
+        <p style={{ width:"200px", color: "red",backgroundColor:"pink",border:"1px solid green",borderRadius:"5px" }}>GAME NOT COMPLETE</p>
       )}
+      </div>
       <p>Platform: {myGameData.platform}</p>
       <Link to={`/games/${myGameData.gameId}`}>
         <button className="button3D">See in Store</button>
@@ -71,7 +73,7 @@ function MyGamePage() {
       <Popup trigger={<button className="button3D">Add screenshot</button>}>
         {(close) => (
           <Form onSubmit={() => handleAddScreenshot(event, close)}>
-            <Form.Group>
+            <Form.Group className="mb-3">
               <Form.Label>Screenshot URL:</Form.Label>
               <Form.Control
                 className="bg-dark text-light"
@@ -80,7 +82,7 @@ function MyGamePage() {
                 onChange={() => setNewScreenshot(event.target.value)}
               />
             </Form.Group>
-            <button type="submit">Send</button>
+            <button className="button3D popup-button" type="submit">Send</button>
           </Form>
         )}
       </Popup>
@@ -88,8 +90,8 @@ function MyGamePage() {
         {(close) => (
           <>
             <p>Are you sure you want to delete this game from your vault?</p>
-            <button onClick={close}>Go back</button>
-            <button onClick={handleDelete}>Delete</button>
+            <button className="button3D popup-button" onClick={close}>No</button>
+            <button className="button3D popup-button" onClick={handleDelete}>Delete</button>
           </>
         )}
       </Popup>

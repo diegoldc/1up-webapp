@@ -41,7 +41,7 @@ function App() {
       <Route path='/games/:gameId/editReview/:reviewId' element={<EditReviewPage/>}  />
       <Route path='/profiles' element={<ProfilePage/>}/>
       <Route path='/vault' element={<Library/>} />
-      <Route path='/search/:filterName/:filterId' element={<FilteredSearch/>} />
+      <Route path='/search/:filterName/:filterId/:tag' element={<FilteredSearch/>} />
       <Route path='/vault/:myGameId' element={<MyGamePage />} />
       <Route path='/games/:gameId/addToVault' element={<AddToVault />} />
       <Route path='/vault/fallback' element={<FallbackVaultPage/>} />

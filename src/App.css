@@ -275,10 +275,12 @@ margin: 15px !important;
 }
 
 .revCard {
-  border:1px solid white;
+  border:1px solid lightblue;
   margin:15px;
   padding-top: 5px;
   padding: 5px;
+  border-radius: 15px;
+  box-shadow:3px 3px 3px 3px #151e24;
 }
 
 .revCard button{
@@ -377,10 +379,38 @@ margin: 15px !important;
   box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
 }
 
+.profilePage {
+  background-color: #2d5268;
+  border: 2px solid lightblue;
+  border-radius: 20px;
+  width: 80vw;
+  max-width: 500px;
+  margin:auto;
+  min-width: 230px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
 .profilePage h2{
   margin: 40px !important;
 }
 
+.popup-content {
+  background-color: #2d5268 !important;
+  color: lightblue;
+  border: 1px solid #151e24 !important;
+  /* #2A3D48 #151e24 */
+}
+
+.popup-button {
+  height: 30px !important;
+  width: 80px !important;
+  padding: 2px !important;
+  margin: 5px !important;
+}
 
 /* .gameCard{
   background-color: #3e5f72 !important;

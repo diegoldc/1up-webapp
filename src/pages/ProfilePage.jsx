@@ -26,7 +26,8 @@ function ProfilePage() {
       <img className="profPic" src={profile.profilePic} alt="foto" />
 
       <h2>{profile.user}</h2>
-
+      
+      <div>
       <Link to={`/vault/`}>
       <button className="button3D">Go to my Vault</button>
       </Link>
@@ -34,7 +35,8 @@ function ProfilePage() {
       <Link to={`/myReviews/${profile.id}`}>
       <button className="button3D">See my Reviews</button>
       </Link>
-     
+      </div>
+    
     </div>
   )
 }

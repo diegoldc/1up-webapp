@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import axios from "axios"
 import Spinner from '../components/Spinner';
+import { Link } from "react-router-dom";
 
 function ProfilePage() {
 
@@ -21,10 +22,19 @@ function ProfilePage() {
   }
 
   return (
-    <div>
-      <img style={{width:"150px"}} src={profile.profilePic} alt="foto" />
+    <div className="profilePage">
+      <img className="profPic" src={profile.profilePic} alt="foto" />
 
-      <p>{profile.user}</p>
+      <h2>{profile.user}</h2>
+
+      <Link to={`/vault/`}>
+      <button className="button3D">Go to my Vault</button>
+      </Link>
+
+      <Link to={`/myReviews/${profile.id}`}>
+      <button className="button3D">See my Reviews</button>
+      </Link>
+     
     </div>
   )
 }

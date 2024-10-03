@@ -10,6 +10,8 @@ function EditReviewPage() {
 
   const [editContent, setEditContent] = useState("");
   const [editRating, setEditRating] = useState("");
+  const [wouldRecommend, setWouldRecommend] = useState(null)
+  const [gameName, setGameName] = useState(null)
   const [usrName, setUsrName] = useState(null);
   const [usrPic, setUsrPic] = useState(null);
 
@@ -33,17 +35,27 @@ function EditReviewPage() {
       );
       setEditContent(revData.data.content);
       setEditRating(revData.data.rating);
-      // setEditContent()
+      setGameName(revData.data.gameName);
+      setWouldRecommend(revData.data.wouldRecommend);
     } catch (error) {
       console.log(error);
     }
   };
+
+  const handleChecked = () => {
+    if(wouldRecommend === false){
+      setWouldRecommend(true)
+    } else{
+      setWouldRecommend(false)
+    }
+  }
 
   const handleSubmit = (e) => {
     e.preventDefault();
     let editObj = {
       content: editContent,
       rating: editRating,
+      wouldRecommend,
     };
     axios.patch(
       `${import.meta.env.VITE_LOCAL_URL}/reviews/${reviewId}`,
@@ -58,6 +70,8 @@ function EditReviewPage() {
 
   return (
     <div>
+      <h1>Edit Review</h1>
+      <h3>{gameName}</h3>
       <div style={{display:"flex",alignItems:"center"}}>
         <img
           style={{
@@ -91,16 +105,26 @@ function EditReviewPage() {
             <option value="5">5</option>
           </Form.Select>
         </Form.Group>
-        <Form.Group>
+        <Form.Group className="mb-3">
           <Form.Label>Review:</Form.Label>
           <Form.Control
-            className="bg-dark text-light"
+            className="bg-dark text-light revContainer"
             name="content"
+          as="textarea"
             value={editContent}
             onChange={() => setEditContent(event.target.value)}
             required
           />
         </Form.Group>
+        <Form.Group className="mb-3">
+        <Form.Check
+          type="switch"
+          id="wouldRecommend"
+          label="I would recommend this game"
+          checked={wouldRecommend}
+          onChange={handleChecked}
+        />
+      </Form.Group>
         <button className="button3D" type="submit">Edit Review</button>
       </Form>
     </div>

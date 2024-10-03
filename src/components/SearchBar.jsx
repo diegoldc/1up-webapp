@@ -11,7 +11,6 @@ function SearchBar({ setGameList }) {
           import.meta.env.VITE_RAWG_KEY
         }&search=${search}`
       );
-      console.log(response);
       setGameList(response.data.results);
     } catch (error) {
       console.log(error);

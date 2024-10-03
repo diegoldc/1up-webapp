@@ -3,10 +3,10 @@ import { Link } from "react-router-dom";
 
 function GameCarousel({suggestionArray}) {
   return (
-    <Carousel style={{height:"30vh",maxHeight:"200px",width:"60vw",margin:"auto"}}>
+    <Carousel className="carousel" style={{height:"30vh",maxHeight:"200px",width:"60vw",margin:"auto"}}>
         {suggestionArray.map((eachGame, index) => {
-          if(eachGame.name.length>23){
-            eachGame.name = eachGame.name.slice(0,20) + "..."
+          if(eachGame.name.length>21){
+            eachGame.name = eachGame.name.slice(0,18) + "..."
           }
           return(
             <Carousel.Item style={{height:"30vh",maxHeight:"200px"}} key={index} interval={3000}>

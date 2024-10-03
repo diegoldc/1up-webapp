@@ -27,10 +27,16 @@ function Library() {
     return <Spinner />
   }
 
+
   return (
+    <>
+    <h1>My Game Vault</h1>
     <div className="gameLibrary">
 
       {myGames.map((eachGame) => {
+        if(eachGame.name.length > 15){
+          eachGame.name = eachGame.name.slice(0,11) + "..."
+        }
         return (
           <Link key={eachGame.id} to={`/vault/${eachGame.id}`} style={{textDecoration:"none"}} >
             <Card border="dark" className="gameCard" style={{ width: '10rem',height:'15rem' }}>
@@ -45,6 +51,7 @@ function Library() {
       })}
 
     </div>
+    </>
   )
 }
 

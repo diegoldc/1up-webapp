@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom"
 import imgHome from '../assets/home.png'
 import imgLibrary from '../assets/library.png'
+import imgMyReviews from '../assets/my-reviews.png'
 import { useEffect, useState } from "react"
 import axios from "axios"
 import appLogo from '../assets/1upLogo.png'
@@ -31,7 +32,7 @@ function NavBar() {
 
       <Link className="navButton" to={"/"} ><img src={imgHome} alt="NavImg"/></Link>
       <Link className="navButton" to={"/vault"} ><img src={imgLibrary} style={{height:"45px", width:"45px",margin:"2.5px"}} alt="NavImg"/></Link>
-      <Link className="navButton" to={`/myReviews/${userId}`} ><img src={imgLibrary} style={{height:"45px", width:"45px",margin:"2.5px"}} alt="NavImg"/></Link>
+      <Link className="navButton" to={`/myReviews/${userId}`} ><img src={imgMyReviews} style={{height:"45px", width:"45px",margin:"2.5px"}} alt="NavImg"/></Link>
       <Link className="navButton" to={"/profiles"} ><img className="navBarProfile" src={profile} alt="NavImg"/></Link>
 
       </ul>

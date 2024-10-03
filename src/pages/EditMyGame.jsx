@@ -55,7 +55,7 @@ function EditMyGame() {
 
     <Form onSubmit={handleSubmit}>
       <h2>Edit your game</h2>
-      <Form.Group>
+      <Form.Group className="mb-3">
         <Form.Label>Cover:</Form.Label>
         <Form.Control
         className="bg-dark text-light"
@@ -64,7 +64,7 @@ function EditMyGame() {
         onChange={handleChange}
         />
       </Form.Group>
-      <Form.Group>
+      <Form.Group className="mb-3">
         <Form.Check
           type="switch"
           name="isGameCompleted"
@@ -73,7 +73,7 @@ function EditMyGame() {
           onChange={() => handleChange(event)}
         />
       </Form.Group>
-      <Form.Group>
+      <Form.Group className="mb-3">
       <Form.Label>Hours played:</Form.Label>
         <Form.Control
           className="bg-dark text-light"

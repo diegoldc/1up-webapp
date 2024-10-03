@@ -88,7 +88,7 @@ function AddToVault() {
         })}
       </Form.Select>
       </Form.Group>
-      <Form.Group>
+      <Form.Group className="mb-3">
         <Form.Check
           type="switch"
           id="game completed"
@@ -97,7 +97,7 @@ function AddToVault() {
           onChange={handleChecked}
         />
       </Form.Group>
-      <Form.Group>
+      <Form.Group className="mb-3">
         <Form.Label>Would you like to add a screenshot?</Form.Label>
         <Form.Control
           className="bg-dark text-light"
@@ -106,7 +106,7 @@ function AddToVault() {
           onChange={() => setScreenshot(event.target.value)}
         />
       </Form.Group>
-      <Form.Group>
+      <Form.Group className="mb-3">
         <Form.Label>How many hours did you play for?</Form.Label>
         <Form.Control
           className="bg-dark text-light"

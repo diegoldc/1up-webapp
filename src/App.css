@@ -1,3 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400..700;1,400..700&display=swap');
+
+/* // <uniquifier>: Use a unique and descriptive class name
+// <weight>: Use a value from 400 to 700
+*/
+.cabin-edited {
+  font-family: "Cabin", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: auto;
+  font-style: normal;
+  font-size: 1.2rem;
+} 
+
 
 :root {
   --background: #2A3D48;
@@ -15,12 +28,34 @@
   color: rgba(255, 255, 255, 0.87);
   background-color: var(--background);
   margin-bottom: 50px;
+  font-family:Cabin, Verdana, Geneva, Tahoma, sans-serif;
+  color: lightblue;
 }
 
 .pageLogo {
   margin: 5px;
   margin-bottom: 25px;
 }
+
+h1 {
+margin: 15px !important;
+}
+
+h2 {
+margin: 15px !important;
+}
+
+h3 {
+  font:cabin-italic;
+  font-style:italic;
+  margin: 15px !important;
+}
+
+h4 {
+margin: 15px !important;
+}
+
+
 
 .navBar {
   position: fixed;
@@ -31,7 +66,7 @@
   color: white;
   text-align: center;
   padding: 20px 0px;
-  z-index: 1;
+  z-index: 10;
 }
 
 .navBar ul {
@@ -72,6 +107,54 @@
   justify-content: space-around;
 }
 
+.tagContainer{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  justify-content: center;
+  background-color: #21333f;
+  padding: 15px;
+  position: relative;
+}
+
+.tag{
+  background-color: var(--shadow);
+  color: lightblue;
+  border-radius: 5px;
+  border: 1px solid rgb(0, 3, 32);
+  padding: 4px 8px;
+
+}
+
+.cornerTags {
+  position: absolute;
+  top: 10px;
+  left: -10px;
+  width: 40px;
+  transform: rotate(-10deg);
+  z-index: 1;
+}
+
+.revContainer {
+  height: 150px;
+  vertical-align: top !important;
+  text-align: start !important;
+  overflow-y: auto !important;
+  line-height: 1.5 !important;
+  white-space: pre-wrap !important;
+  word-wrap: break-word !important
+
+}
+
+.carousel {
+  margin:auto;
+  margin-top: 30px !important;
+  margin-bottom: 30px !important;
+}
+
+.titleGameSeries {
+  margin-top: 30px !important;
+}
 
 /* 
 .button {
@@ -176,10 +259,31 @@
 .carousel-indicators {
   margin-bottom: 0px !important;
   height: 18px;
+  z-index: 1 !important;
+}
+
+.ownIndicator {
+  border-radius: 5px;
+  margin: 5px;
+  padding: 2px 5px;
 }
 
 .gameDesc {
   color: var(--color-font);
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.revCard {
+  border:1px solid white;
+  margin:15px;
+  padding-top: 5px;
+  padding: 5px;
+}
+
+.revCard button{
+  margin: 8px !important;
+  width: 120px;
 }
 
 .input-container {
@@ -252,8 +356,37 @@
 .gameLibrary {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
+  gap: 20px;
+  align-items: center;
+  justify-content: center;
 }
+
+.profPic {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  border: 4px solid #4A90E2;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  object-fit: cover;
+  margin-top: 30px;
+}
+
+.profPic:hover {
+  transform: scale(1.1);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
+}
+
+.profilePage h2{
+  margin: 40px !important;
+}
+
+
+/* .gameCard{
+  background-color: #3e5f72 !important;
+  color: lightblue !important;
+  box-shadow: 0.25rem 0.25rem 5px #151e24;
+} */
 /* 
 .logo {
   height: 6em;

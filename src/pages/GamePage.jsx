@@ -5,6 +5,7 @@ import ReviewCard from "../components/ReviewCard";
 import Spinner from "../components/Spinner";
 import CarouselScreen from "../components/CarouselScreen";
 import GameCarousel from "../components/GameCarousel";
+import imgTags from '../assets/tags.png'
 
 function GamePage() {
   const params = useParams();
@@ -30,7 +31,6 @@ function GamePage() {
           import.meta.env.VITE_RAWG_KEY
         }`
       );
-      console.log(response.data)
       setGameDetails(response.data);
     } catch (error) {
       console.log("FATAL ERROR (game)", error);
@@ -40,7 +40,6 @@ function GamePage() {
         `${import.meta.env.VITE_LOCAL_URL}/reviews?gameId=${params.gameId}`
       );
       setReviews(revResponse.data);
-      console.log(revResponse.data)
     } catch (error) {
       console.log("FATAL ERROR (reviews)", error);
     }
@@ -86,8 +85,16 @@ function GamePage() {
 
   return (
     <div>
-      <h3>{gameDetails.name}</h3>
+      <h1>{gameDetails.name}</h1>
       <CarouselScreen cover={gameDetails.background_image} screenshots={picArray}/>
+      <div className="tagContainer">
+        <img className="cornerTags" src={imgTags}/>
+          {gameDetails.tags.length>0 && gameDetails.tags.map((tag,index) => {
+            if(index<10){
+              return(<span className="tag" key={index} >{tag.name.substring(0,8)}</span>)
+            }
+            })}
+      </div>
       <p className="gameDesc">
         {gameDetails.description_raw.substring(0, 200)}<span hidden={!isHidden}>...</span>
         <span hidden={isHidden}>
@@ -117,8 +124,12 @@ function GamePage() {
           />
         ))
       )}
-      <h4>Games from the same series</h4>
-    <GameCarousel suggestionArray={suggestionArray} />
+      {suggestionArray.length>0 && (
+        <>
+        <h4 className="titleGameSeries">Other titles from this series:</h4>
+        <GameCarousel suggestionArray={suggestionArray} />
+        </>
+      )}
     </div>
   );
 }

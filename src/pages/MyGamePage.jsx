@@ -55,7 +55,7 @@ function MyGamePage() {
 
       <CarouselScreen cover={myGameData.cover} screenshots={myGameData.screenshots} />
 
-      <h3>Hours Played: {myGameData.hoursPlayed}</h3>
+      <h3 style={{marginTop:"20px"}}>Hours Played: {myGameData.hoursPlayed}</h3>
       {myGameData.isGameCompleted ? (
         <p style={{ color: "green" }}>GAME COMPLETE</p>
       ) : (

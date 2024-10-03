@@ -1,6 +1,6 @@
 import axios from "axios"
 import { useState , useEffect } from "react"
-import { Link , useParams } from "react-router-dom"
+import { useParams } from "react-router-dom"
 import Spinner from "../components/Spinner"
 import ReviewCard from "../components/ReviewCard"
 
@@ -17,7 +17,6 @@ function MyReviews() {
   const getData = async () => {
     try {
       const reviewsData = await axios.get(`${import.meta.env.VITE_LOCAL_URL}/reviews?profileId=${userId}`)
-      console.log(reviewsData.data)
       setAllMyReviews(reviewsData.data)
     } catch (error) {
       console.log("get user", error)

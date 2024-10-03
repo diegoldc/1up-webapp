@@ -83,7 +83,8 @@ function AddReviewPage() {
 
   return (
     <div>
-      <h2>Add a new Review</h2>
+      <h1>Add a new Review</h1>
+      <h3>{gameName}</h3>
         <div>
           <img style={{height:"40px",width:"40px",overflow:"hidden",borderRadius:"40px"}} src={usrPic} alt="" />
           <p>User name: {usrName} </p>
@@ -112,13 +113,15 @@ function AddReviewPage() {
         <Form.Group className="mb-3">
           <Form.Label>Review:</Form.Label>
           <Form.Control
-            className="bg-dark text-light"
+            className="bg-dark text-light revContainer"
+            as="textarea"
             name="content"
             value={formData.content}
             onChange={handleChange}
             required
           />
-        </Form.Group>      <Form.Group>
+        </Form.Group>
+        <Form.Group className="mb-3">
         <Form.Check
           type="switch"
           id="wouldRecommend"

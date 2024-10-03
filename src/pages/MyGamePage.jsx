@@ -64,6 +64,7 @@ function MyGamePage() {
       )}
       </div>
       <p>Platform: {myGameData.platform}</p>
+      <div style={{width:"90vw",maxWidth:"900px",margin:"auto"}}>
       <Link to={`/games/${myGameData.gameId}`}>
         <button className="button3D">See in Store</button>
       </Link>
@@ -95,7 +96,8 @@ function MyGamePage() {
           </>
         )}
       </Popup>
-      <button className="button3D">Play</button>
+      <button className="button3D playbtn">Play</button>
+      </div>
     </>
   );
 }

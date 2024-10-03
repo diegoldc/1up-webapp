@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 function GameCarousel({suggestionArray}) {
   return (
-    <Carousel className="carousel" style={{height:"30vh",maxHeight:"200px",width:"60vw",margin:"auto"}}>
+    <Carousel className="carousel" style={{height:"30vh",maxHeight:"200px",width:"60vw",maxWidth:"500px",margin:"auto"}}>
         {suggestionArray.map((eachGame, index) => {
           if(eachGame.name.length>21){
             eachGame.name = eachGame.name.slice(0,18) + "..."

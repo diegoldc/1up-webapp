@@ -72,13 +72,13 @@ function EditReviewPage() {
     <div>
       <h1>Edit Review</h1>
       <h3>{gameName}</h3>
-      <div style={{display:"flex",alignItems:"center"}}>
+      <div style={{display:"flex",alignItems:"center",justifyContent:"center",margin:"30px"}}>
         <img
           style={{
             height: "60px",
             width: "60px",
             overflow: "hidden",
-            borderRadius: "40px",
+            borderRadius: "40px"
           }}
           src={usrPic}
           alt=""

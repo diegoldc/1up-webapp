@@ -30,6 +30,7 @@ function MyReviews() {
   return (
     <>
     <h1>All your Reviews</h1>
+    <div style={{display:"flex",flexWrap:"wrap"}}>
     {allMyReviews.map((eachReview) => {
       return (
         <ReviewCard
@@ -40,6 +41,7 @@ function MyReviews() {
         />
       )
     })}
+    </div>
     </>
   )
 }

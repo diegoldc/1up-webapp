@@ -55,6 +55,7 @@ function EditMyGame() {
 
     <Form onSubmit={handleSubmit}>
       <h1>Edit your game</h1>
+      <img style={{width:"70vw",maxWidth:"380px",borderRadius:"15px"}} src={gameInfo.cover} alt="" />
       <h3>{gameInfo.name}</h3>
       <Form.Group className="mb-3">
         <Form.Label>Cover:</Form.Label>

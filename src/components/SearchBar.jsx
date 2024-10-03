@@ -35,7 +35,7 @@ function SearchBar({ setGameList }) {
       </label>
       <div className="topline"></div>
       <div className="underline"></div>
-      <button className="button3D" style={{marginTop:"20px",height:"40px",paddingTop:"8px"}} onClick={handleSearch}>Search</button>
+      <button className="button3D" style={{marginTop:"20px",height:"40px",padding:"0.25em"}} onClick={handleSearch}>Search</button>
     </div>
   );
 }

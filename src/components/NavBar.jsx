@@ -5,12 +5,14 @@ import imgMyReviews from '../assets/my-reviews.png'
 import { useEffect, useState } from "react"
 import axios from "axios"
 import appLogo from '../assets/1upLogo.png'
+import menuImg from '../assets/menu.png'
 
 
 function NavBar() {
 
   const [profile, setProfile] = useState(appLogo)
   const [ userId , setUserId ] = useState(null)
+  const [isNavOpen, setIsNavOpen] = useState(false)
 
   useEffect(() => {
     getProfile()
@@ -26,17 +28,23 @@ function NavBar() {
     }
   }
 
-  return (
-    <nav className="navBar">
-      <ul>
+  const handleBurger= () => {
+    setIsNavOpen(!isNavOpen)
+  }
 
-      <Link className="navButton" to={"/"} ><img src={imgHome} alt="NavImg"/></Link>
-      <Link className="navButton" to={"/vault"} ><img src={imgLibrary} style={{height:"45px", width:"45px",margin:"2.5px"}} alt="NavImg"/></Link>
-      <Link className="navButton" to={`/myReviews/${userId}`} ><img src={imgMyReviews} style={{height:"45px", width:"45px",margin:"2.5px"}} alt="NavImg"/></Link>
-      <Link className="navButton" to={"/profiles"} ><img className="navBarProfile" src={profile} alt="NavImg"/></Link>
+  return (
+    <div style={{position:"relative"}}>
+    <button className={`button3D burger ${isNavOpen ? "openbtn" :"closebtn"}`} onClick={handleBurger}><img src={menuImg} alt="" style={{height:"100%"}} /></button>
+    <nav className={`navBar ${isNavOpen && "open"} `} >
+      <ul>
+      <Link className="navButton" to={"/"} ><img src={imgHome} alt="NavImg"/><span className="navLegend">Explore</span></Link>
+      <Link className="navButton" to={"/vault"} ><img src={imgLibrary} style={{height:"45px", width:"45px",margin:"2.5px"}} alt="NavImg"/><span className="navLegend">My Vault</span></Link>
+      <Link className="navButton" to={`/myReviews/${userId}`} ><img src={imgMyReviews} style={{height:"45px", width:"45px",margin:"2.5px"}} alt="NavImg"/><span className="navLegend">My Reviews</span></Link>
+      <Link className="navButton " to={"/profiles"} ><img className="navBarProfile" src={profile} alt="NavImg"/><span className="navLegend">Bob_007</span></Link>
 
       </ul>
     </nav>
+    </div>
   )
 }
 

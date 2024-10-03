@@ -28,7 +28,6 @@ function AddToVault() {
   const getData = async () => {
     try {
       const gameData = await axios.get(`${import.meta.env.VITE_RAWG_URL}/games/${gameId}${import.meta.env.VITE_RAWG_KEY}`)
-      console.log(gameData.data)
       setNewVaultObj({...newVaultObj,name:`${gameData.data.name}`,cover:`${gameData.data.background_image}`})
       setPossiblePlatforms(gameData.data.platforms)
     } catch (error) {

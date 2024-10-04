@@ -49,22 +49,22 @@ On the future we would like to add some of these functionalities:
 
 ## React Router Routes (React App)
 
-| Path                                  | Page              | Components                             | Behavior                                           |
-| ------------------------------------- | ----------------- | -------------------------------------- | -------------------------------------------------- |
-| `/explore`                            | StorePage         | SearchBar, FilterBar,StoreGameCard     | Home page, shows a list of games to browse         |
-| `/games/:gameId`                      | GamePage          | ReviewCard,CarouselScreen,GameCarousel | Shows details of a selected game                   |
-| `/games/:gameId/addReview`            | AddReview         |                                        | Review form, add a review to selected game         |
-| `/games/:gameId/editReview/:reviewId` | EditReviewPage    |                                        | Edit review form, edit selected review             |
-| `/profiles`                           | ProfilePage       |                                        | Show user data                                     |
-| `/vault`                              | Libreary          |                                        | Shows all games on my vault                        |
-| `/search/:filterName/:filterId/:tag`  | FilteredSearch    | StoreGameCard                          | Shows games by chosen filter                       |
-| `/vault/:myGameId`                    | MyGamePage        | CarouselScreen                         | Displays information of owned game                 |
-| `/games/:gameId/addToVault`           | AddToVault        |                                        | Form to add game to your vault                     |
-| `/vault/fallback`                     | FallbackVaultPage |                                        | Alert user that game selected is already in vault  |
-| `/vault/:myGameId/edit`               | EditMyGame        |                                        | Game form to edit information on owned game        |
-| `/myReviews/:UserId`                  | MyReviewsPage     | ReviewCard                             | Shows all reviews made by user                     |
-| `/play`                               | PlayPage          |                                        | Click to see...                                    |
-| `*`                                   | NotFoundPage      |                                        | Shows a warning that requested path does not exist |
+| Path                                  | Page              | Components                               | Behavior                                           |
+| ------------------------------------- | ----------------- | ---------------------------------------- | -------------------------------------------------- |
+| `/explore`                            | StorePage         | SearchBar, FilterBar, StoreGameCard      | Home page, shows a list of games to browse         |
+| `/games/:gameId`                      | GamePage          | ReviewCard, CarouselScreen, GameCarousel | Shows details of a selected game                   |
+| `/games/:gameId/addReview`            | AddReview         |                                          | Review form, add a review to selected game         |
+| `/games/:gameId/editReview/:reviewId` | EditReviewPage    |                                          | Edit review form, edit selected review             |
+| `/profiles`                           | ProfilePage       |                                          | Show user data                                     |
+| `/vault`                              | Libreary          |                                          | Shows all games on my vault                        |
+| `/search/:filterName/:filterId/:tag`  | FilteredSearch    | StoreGameCard                            | Shows games by chosen filter                       |
+| `/vault/:myGameId`                    | MyGamePage        | CarouselScreen                           | Displays information of owned game                 |
+| `/games/:gameId/addToVault`           | AddToVault        |                                          | Form to add game to your vault                     |
+| `/vault/fallback`                     | FallbackVaultPage |                                          | Alert user that game selected is already in vault  |
+| `/vault/:myGameId/edit`               | EditMyGame        |                                          | Game form to edit information on owned game        |
+| `/myReviews/:UserId`                  | MyReviewsPage     | ReviewCard                               | Shows all reviews made by user                     |
+| `/play`                               | PlayPage          |                                          | Click to see...                                    |
+| `*`                                   | NotFoundPage      |                                          | Shows a warning that requested path does not exist |
 
 ## Other Components
 
@@ -86,7 +86,6 @@ On the future we would like to add some of these functionalities:
 [Repository Link Server](https://github.com/diegoldc/json-server)
 
 [Deploy Link](https://1up-app.netlify.app/)
-
 
 ### Slides
 

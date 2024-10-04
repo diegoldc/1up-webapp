@@ -5,7 +5,7 @@ import ReviewCard from "../components/ReviewCard";
 import Spinner from "../components/Spinner";
 import CarouselScreen from "../components/CarouselScreen";
 import GameCarousel from "../components/GameCarousel";
-import imgTags from '../assets/tags.png'
+import imgTags from "../assets/tags.png";
 
 function GamePage() {
   const params = useParams();
@@ -13,12 +13,10 @@ function GamePage() {
   const [gameDetails, setGameDetails] = useState(null);
   const [reviews, setReviews] = useState(null);
   const [usrName, setUsrName] = useState(null);
-  const [ isHidden , setIsHidden ] = useState(true)
-  const [ dataArray , setDataArray ] = useState([])
-  const [ suggestionArray , setSuggestionArray ] = useState([])
-  let picArray = []
-
-
+  const [isHidden, setIsHidden] = useState(true);
+  const [dataArray, setDataArray] = useState([]);
+  const [suggestionArray, setSuggestionArray] = useState([]);
+  let picArray = [];
 
   useEffect(() => {
     getData();
@@ -52,17 +50,24 @@ function GamePage() {
       console.log("FATAL ERROR (profile)", error);
     }
     try {
-      const screenshotsData = await axios.get(`${import.meta.env.VITE_RAWG_URL}/games/${params.gameId}/screenshots${import.meta.env.VITE_RAWG_KEY}`)
-      setDataArray(screenshotsData.data.results)
-
+      const screenshotsData = await axios.get(
+        `${import.meta.env.VITE_RAWG_URL}/games/${params.gameId}/screenshots${
+          import.meta.env.VITE_RAWG_KEY
+        }`
+      );
+      setDataArray(screenshotsData.data.results);
     } catch (error) {
-      console.log("screenshots",error)
+      console.log("screenshots", error);
     }
     try {
-      const suggestionsData = await axios.get(`${import.meta.env.VITE_RAWG_URL}/games/${params.gameId}/game-series${import.meta.env.VITE_RAWG_KEY}`)
-      setSuggestionArray(suggestionsData.data.results)
+      const suggestionsData = await axios.get(
+        `${import.meta.env.VITE_RAWG_URL}/games/${params.gameId}/game-series${
+          import.meta.env.VITE_RAWG_KEY
+        }`
+      );
+      setSuggestionArray(suggestionsData.data.results);
     } catch (error) {
-      console.log("suggested",error)
+      console.log("suggested", error);
     }
   };
 
@@ -72,41 +77,50 @@ function GamePage() {
     );
   };
 
-
-
   if (gameDetails === null) {
-    return <Spinner />
+    return <Spinner />;
   }
-  if(dataArray.length>1){
-    dataArray.map((imgObj) => { 
-    picArray.unshift(imgObj.image)
-    })
+  if (dataArray.length > 1) {
+    dataArray.map((imgObj) => {
+      picArray.unshift(imgObj.image);
+    });
   }
 
   return (
     <div>
       <h1>{gameDetails.name}</h1>
-      <CarouselScreen cover={gameDetails.background_image} screenshots={picArray}/>
+      <CarouselScreen
+        cover={gameDetails.background_image}
+        screenshots={picArray}
+      />
       <div className="tagContainer">
-        <img className="cornerTags" src={imgTags}/>
-          {gameDetails.tags.length>0 && gameDetails.tags.map((tag,index) => {
-            if(index<10){
-              return(<span className="tag" key={index} >{tag.name.substring(0,8)}</span>)
+        <img className="cornerTags" src={imgTags} />
+        {gameDetails.tags.length > 0 &&
+          gameDetails.tags.map((tag, index) => {
+            if (index < 10) {
+              return (
+                <span className="tag" key={index}>
+                  {tag.name.substring(0, 8)}
+                </span>
+              );
             }
-            })}
+          })}
       </div>
       <p className="gameDesc">
-        {gameDetails.description_raw.substring(0, 200)}<span hidden={!isHidden}>...</span>
+        {gameDetails.description_raw.substring(0, 200)}
+        <span hidden={!isHidden}>...</span>
         <span hidden={isHidden}>
           {gameDetails.description_raw.substring(
             200,
             gameDetails.description_raw.length
           )}
         </span>
-        <button className="showMore" onClick={() => setIsHidden(!isHidden)}>{isHidden ? "...show more" : "...show less"}</button>
+        <button className="showMore" onClick={() => setIsHidden(!isHidden)}>
+          {isHidden ? "...show more" : "...show less"}
+        </button>
       </p>
-      <Link state={gameDetails.id} to={`/games/${gameDetails.id}/addToVault`} >
-      <button className="button3D">Add to vault</button>
+      <Link state={gameDetails.id} to={`/games/${gameDetails.id}/addToVault`}>
+        <button className="button3D">Add to vault</button>
       </Link>
       <Link state={gameDetails.name} to={`/games/${gameDetails.id}/addReview`}>
         <button className="button3D">Add review</button>
@@ -124,10 +138,10 @@ function GamePage() {
           />
         ))
       )}
-      {suggestionArray.length>0 && (
+      {suggestionArray.length > 0 && (
         <>
-        <h4 className="titleGameSeries">Other titles from this series:</h4>
-        <GameCarousel suggestionArray={suggestionArray} />
+          <h4 className="titleGameSeries">Other titles from this series:</h4>
+          <GameCarousel suggestionArray={suggestionArray} />
         </>
       )}
     </div>

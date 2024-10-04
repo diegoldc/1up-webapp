@@ -33,7 +33,6 @@ function ReviewCard({
       if (response.data.length > 0 && userName === "Bob_007") {
         setIsGameOwned(true);
         setIsGameCompleted(response.data[0].isGameCompleted);
-
       }
     } catch (error) {
       console.log("get game/user info", error);
@@ -92,7 +91,7 @@ function ReviewCard({
         </p>
         <p
           className="ownIndicator"
-          style={{ 
+          style={{
             border: isGameOwned ? "1px solid green" : "1px solid red",
             backgroundColor: isGameOwned ? "lightgreen" : "pink",
             color: isGameOwned ? "green" : "red",
@@ -102,7 +101,7 @@ function ReviewCard({
         </p>
         <p
           className="ownIndicator"
-          style={{ 
+          style={{
             border: isGameRecommended ? "1px solid green" : "1px solid red",
             backgroundColor: isGameRecommended ? "lightgreen" : "pink",
             color: isGameRecommended ? "green" : "red",

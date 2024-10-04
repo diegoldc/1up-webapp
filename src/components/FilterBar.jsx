@@ -47,27 +47,39 @@ function FilterBar() {
         gap: "20px",
       }}
     >
-      <DropdownButton id="dropdown-basic-button" title="Genre" variant="Secondary">
-
+      <DropdownButton
+        id="dropdown-basic-button"
+        title="Genre"
+        variant="Secondary"
+      >
         {genres.map((eachGenre, index) => {
           return (
-            <Dropdown.Item style={{backgroundColor:"rgb(47, 78, 95)",color:"lightblue"}} key={index} href={`/search/genres/${eachGenre.id}/${eachGenre.name}`}>
+            <Dropdown.Item
+              style={{ backgroundColor: "rgb(47, 78, 95)", color: "lightblue" }}
+              key={index}
+              href={`/search/genres/${eachGenre.id}/${eachGenre.name}`}
+            >
               {eachGenre.name}
             </Dropdown.Item>
           );
         })}
-
       </DropdownButton>
-      <DropdownButton id="dropdown-basic-button" title="Platforms" variant="Secondary" >
-  
-      {platforms.map((eachPlatform, index) => {
+      <DropdownButton
+        id="dropdown-basic-button"
+        title="Platforms"
+        variant="Secondary"
+      >
+        {platforms.map((eachPlatform, index) => {
           return (
-            <Dropdown.Item style={{backgroundColor:"rgb(47, 78, 95)",color:"lightblue"}} key={index} href={`/search/platforms/${eachPlatform.id}/${eachPlatform.name}`}>
+            <Dropdown.Item
+              style={{ backgroundColor: "rgb(47, 78, 95)", color: "lightblue" }}
+              key={index}
+              href={`/search/platforms/${eachPlatform.id}/${eachPlatform.name}`}
+            >
               {eachPlatform.name}
             </Dropdown.Item>
           );
         })}
-
       </DropdownButton>
     </nav>
   );

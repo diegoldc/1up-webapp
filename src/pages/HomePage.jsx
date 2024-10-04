@@ -1,14 +1,12 @@
-import { useNavigate } from "react-router-dom"
-import { useEffect } from "react"
+import { useNavigate } from "react-router-dom";
+import { useEffect } from "react";
 
 function HomePage() {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   useEffect(() => {
-    navigate('/explore')
-  },[])
-  return(
-    <></>
-  )
+    navigate("/explore");
+  }, []);
+  return <></>;
 }
 
-export default HomePage
+export default HomePage;

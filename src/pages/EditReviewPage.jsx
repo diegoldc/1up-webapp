@@ -10,8 +10,8 @@ function EditReviewPage() {
 
   const [editContent, setEditContent] = useState("");
   const [editRating, setEditRating] = useState("");
-  const [wouldRecommend, setWouldRecommend] = useState(null)
-  const [gameName, setGameName] = useState(null)
+  const [wouldRecommend, setWouldRecommend] = useState(null);
+  const [gameName, setGameName] = useState(null);
   const [usrName, setUsrName] = useState(null);
   const [usrPic, setUsrPic] = useState(null);
 
@@ -43,12 +43,12 @@ function EditReviewPage() {
   };
 
   const handleChecked = () => {
-    if(wouldRecommend === false){
-      setWouldRecommend(true)
-    } else{
-      setWouldRecommend(false)
+    if (wouldRecommend === false) {
+      setWouldRecommend(true);
+    } else {
+      setWouldRecommend(false);
     }
-  }
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -65,25 +65,34 @@ function EditReviewPage() {
   };
 
   if (editContent === null || editRating === null) {
-    return <Spinner />
+    return <Spinner />;
   }
 
   return (
     <div>
       <h1>Edit Review</h1>
       <h3>{gameName}</h3>
-      <div style={{display:"flex",alignItems:"center",justifyContent:"center",margin:"30px"}}>
+      <div
+        style={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          margin: "30px",
+        }}
+      >
         <img
           style={{
             height: "60px",
             width: "60px",
             overflow: "hidden",
-            borderRadius: "40px"
+            borderRadius: "40px",
           }}
           src={usrPic}
           alt=""
         />
-        <p style={{margin:"0px 0px 0px 10px",fontSize:"1.7rem"}}>{usrName} </p>
+        <p style={{ margin: "0px 0px 0px 10px", fontSize: "1.7rem" }}>
+          {usrName}{" "}
+        </p>
       </div>
       <Form onSubmit={handleSubmit}>
         <Form.Group className="mb-3">
@@ -110,22 +119,24 @@ function EditReviewPage() {
           <Form.Control
             className="bg-dark text-light revContainer"
             name="content"
-          as="textarea"
+            as="textarea"
             value={editContent}
             onChange={() => setEditContent(event.target.value)}
             required
           />
         </Form.Group>
         <Form.Group className="mb-3">
-        <Form.Check
-          type="switch"
-          id="wouldRecommend"
-          label="I would recommend this game"
-          checked={wouldRecommend}
-          onChange={handleChecked}
-        />
-      </Form.Group>
-        <button className="button3D" type="submit">Edit Review</button>
+          <Form.Check
+            type="switch"
+            id="wouldRecommend"
+            label="I would recommend this game"
+            checked={wouldRecommend}
+            onChange={handleChecked}
+          />
+        </Form.Group>
+        <button className="button3D" type="submit">
+          Edit Review
+        </button>
       </Form>
     </div>
   );

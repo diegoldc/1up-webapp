@@ -8,9 +8,9 @@
 
 This app is for gamers to find reviews of games before buying them so as not to loose money. Once bought and played they can come back and write their own review.
 
-#### [Client Repo here](https://github.com/diegoldc/json-server)
+#### [Server Repo here](https://github.com/diegoldc/json-server)
 
-#### [Server Repo here](https://github.com/diegoldc/1up-webapp)
+#### [Client Repo here](https://github.com/diegoldc/1up-webapp)
 
 ## Technologies, Libraries & APIs used
 
@@ -69,28 +69,25 @@ On the future we would like to add some of these functionalities:
 ## Other Components
 
 - Navbar
-- Footer
+- Spinner
 
 ## Links
 
 ### Collaborators
 
-[Developer 1 name](www.github-url.com)
+[Developer 1 name](https://github.com/TanoPalazzo14)
 
-[Developer 2 name](www.github-url.com)
+[Developer 2 name](https://github.com/diegoldc)
 
 ### Project
 
-[Repository Link Client](www.your-github-url-here.com)
+[Repository Link Client](https://github.com/diegoldc/1up-webapp)
 
-[Repository Link Server](www.your-github-url-here.com)
+[Repository Link Server](https://github.com/diegoldc/json-server)
 
-[Deploy Link](www.your-deploy-url-here.com)
+[Deploy Link](https://1up-app.netlify.app/)
 
-### Trello
-
-[Link to your trello board](www.your-trello-url-here.com)
 
 ### Slides
 
-[Slides Link](www.your-slides-url-here.com)
+[Slides Link](https://docs.google.com/presentation/d/1mkqT8JrSzoPOuVwp_JhfJF-_TxbVadvvHDhwdmpvHWE/edit?usp=sharing)

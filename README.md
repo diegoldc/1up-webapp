@@ -2,7 +2,7 @@
 
 ## [See the App!](https://1up-app.netlify.app/)
 
-![App Logo](../src/assets/1upLogo.png)
+![App Logo](./src/assets/1upLogo.png)
 
 ## Description
 

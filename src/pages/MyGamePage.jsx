@@ -90,7 +90,7 @@ function MyGamePage() {
       <p>Platform: {myGameData.platform}</p>
       <div style={{ width: "90vw", maxWidth: "900px", margin: "auto" }}>
         <Link to={`/games/${myGameData.gameId}`}>
-          <button className="button3D">See in Store</button>
+          <button className="button3D">Explore game page</button>
         </Link>
         <Link to={`/vault/${myGameId}/edit`}>
           <button className="button3D">Edit my Game</button>
